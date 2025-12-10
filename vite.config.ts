@@ -4,6 +4,7 @@ import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  publicDir: false, // Disable default publicDir since we're using 'public' as outDir
   build: {
     outDir: 'public',
     lib: {
