@@ -327,7 +327,10 @@ The main component for displaying documentation.
   tree={tree}
   content={content}
   currentPath="getting-started"
-  onDocClick={(path) => console.log('Clicked:', path)}
+      onDocClick={(path) => {
+        // console.log('Clicked:', path);
+        setCurrentPath(path);
+      }}
   template="modern"
   enableSearch={true}
 />
@@ -600,17 +603,25 @@ export function TemplateShowcase() {
   const [tabValue, setTabValue] = useState(0);
   
   const templates = getAllTemplates();
+  // Get content for current path
   const content = docsContent[currentPath] || sampleContent;
 
+  // Debug: Log when currentPath changes
+  // useEffect(() => {
+  //   console.log('currentPath changed to:', currentPath);
+  //   console.log('Content exists:', !!docsContent[currentPath]);
+  //   console.log('Content preview:', content.substring(0, 50) + '...');
+  // }, [currentPath, content]);
+
   const handleDocClick = (path: string) => {
-    console.log('Document clicked:', path);
-    // Update path if we have content, or use default content
-    if (docsContent[path]) {
-      setCurrentPath(path);
-    } else if (path.includes('/') || path.includes('-')) {
-      // It's likely a file path, update it
-      setCurrentPath(path);
-    }
+    // console.log('=== handleDocClick called ===');
+    // console.log('Path received:', path);
+    // console.log('Current path before update:', currentPath);
+    // console.log('Has content for path:', !!docsContent[path]);
+    // console.log('Available paths:', Object.keys(docsContent));
+    // Always update the path - content will fallback to sampleContent if not found
+    setCurrentPath(path);
+    // console.log('setCurrentPath called with:', path);
   };
 
   return (
@@ -760,12 +771,18 @@ export function TemplateShowcase() {
               Live Preview: {templates.find(t => t.variant === selectedTemplate)?.name}
             </Typography>
             <Typography variant="body2" color="text.secondary" paragraph>
-              Template: <code style={{ 
-                background: 'rgba(96, 165, 250, 0.2)', 
-                padding: '2px 6px', 
-                borderRadius: '4px',
-                color: '#60a5fa'
-              }}>{selectedTemplate}</code>
+              Template: <Box
+                component="code"
+                sx={{
+                  background: 'rgba(96, 165, 250, 0.2)',
+                  padding: '2px 6px',
+                  borderRadius: '4px',
+                  color: '#60a5fa',
+                  fontFamily: 'monospace',
+                }}
+              >
+                {selectedTemplate}
+              </Box>
             </Typography>
             <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mt: 2 }}>
               {templates.map((template) => (

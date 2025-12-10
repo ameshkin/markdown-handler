@@ -62,24 +62,36 @@ function DocTreeItem({ node, currentPath, level = 0, onDocClick }: DocTreeItemPr
   const hasChildren = node.children && node.children.length > 0;
 
   const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+    // console.log('DocTreeItem clicked:', node.name, node.path, 'isFile:', node.isFile, 'hasChildren:', hasChildren);
     
     // If it's a file, always navigate
     if (node.isFile) {
+      e.preventDefault();
+      e.stopPropagation();
+      // console.log('Calling onDocClick for file:', node.path);
       if (onDocClick) {
         onDocClick(node.path);
       }
+      // else {
+      //   console.warn('onDocClick is not defined!');
+      // }
       return;
     }
     
-    // For folders with children, toggle open state
+    // For folders with children, toggle open state only
     if (hasChildren) {
+      e.preventDefault();
+      e.stopPropagation();
+      // console.log('Toggling folder:', node.path, 'from', open, 'to', !open);
       setOpen(!open);
+      return;
     }
     
-    // Allow folders to be clickable too (for navigation)
-    if (onDocClick && !node.isFile) {
+    // Allow folders without children to be clickable
+    if (onDocClick && !node.isFile && !hasChildren) {
+      e.preventDefault();
+      e.stopPropagation();
+      // console.log('Calling onDocClick for folder without children:', node.path);
       onDocClick(node.path);
     }
   };
@@ -90,9 +102,11 @@ function DocTreeItem({ node, currentPath, level = 0, onDocClick }: DocTreeItemPr
         <ListItemButton
           onClick={handleClick}
           selected={isSelected}
+          component="div"
           sx={{
             pl: level * 2 + 2,
             py: 0.5,
+            cursor: 'pointer',
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, width: '100%' }}>
