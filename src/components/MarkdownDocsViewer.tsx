@@ -29,6 +29,7 @@ import {
   TableRow,
   Chip,
 } from '@mui/material';
+// All icons use Outlined variants for consistency
 import {
   ExpandLessOutlined,
   ExpandMoreOutlined,
