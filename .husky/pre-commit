@@ -1,2 +1,7 @@
-npx lint-staged
+# Update package-lock.json if package.json changed
+if git diff --cached --name-only | grep -q "package.json"; then
+  echo "package.json changed, updating package-lock.json..."
+  npm install --package-lock-only
+  git add package-lock.json
+fi
 
