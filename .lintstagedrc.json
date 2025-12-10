@@ -1,0 +1,9 @@
+{
+  "*.{ts,tsx}": [
+    "npm run typecheck"
+  ],
+  "package.json": [
+    "npm install --package-lock-only"
+  ]
+}
+

@@ -24,13 +24,19 @@ jobs:
         cache: 'npm'
     
     - name: Install dependencies
-      run: npm ci
+      run: |
+        npm ci
+        # Verify package-lock.json is in sync
+        npm install --package-lock-only --dry-run || (echo "package-lock.json is out of sync. Run 'npm install' locally and commit the updated lock file." && exit 1)
     
     - name: Run type check
       run: npm run typecheck
     
     - name: Build
       run: npm run build
+    
+    - name: Run tests
+      run: npm run test:run
 
   lint:
     runs-on: ubuntu-latest
@@ -45,7 +51,10 @@ jobs:
         cache: 'npm'
     
     - name: Install dependencies
-      run: npm ci
+      run: |
+        npm ci
+        # Verify package-lock.json is in sync
+        npm install --package-lock-only --dry-run || (echo "package-lock.json is out of sync. Run 'npm install' locally and commit the updated lock file." && exit 1)
     
     - name: Run linter
       run: npm run typecheck || true
