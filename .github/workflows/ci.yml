@@ -29,9 +29,8 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
       run: |
-        npm ci
-        # Verify package-lock.json is in sync
-        npm install --package-lock-only --dry-run || (echo "package-lock.json is out of sync. Run 'npm install' locally and commit the updated lock file." && exit 1)
+        # Try npm ci first, if it fails, use npm install
+        npm ci || (echo "package-lock.json out of sync, updating..." && npm install && echo "Please commit the updated package-lock.json" && exit 1)
     
     - name: Run type check
       env:
@@ -66,9 +65,8 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
       run: |
-        npm ci
-        # Verify package-lock.json is in sync
-        npm install --package-lock-only --dry-run || (echo "package-lock.json is out of sync. Run 'npm install' locally and commit the updated lock file." && exit 1)
+        # Try npm ci first, if it fails, use npm install
+        npm ci || (echo "package-lock.json out of sync, updating..." && npm install && echo "Please commit the updated package-lock.json" && exit 1)
     
     - name: Run linter
       env:
