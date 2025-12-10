@@ -92,7 +92,7 @@ describe('MarkdownDocsViewer', () => {
     const installationButton = Array.from(sidebarButtons).find(btn => 
       btn.textContent?.includes('Installation') && 
       btn.closest('[class*="MuiList"]')
-    );
+    ) as HTMLElement;
     
     expect(installationButton).toBeTruthy();
     if (installationButton) {
