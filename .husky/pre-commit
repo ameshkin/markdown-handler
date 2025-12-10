@@ -1,3 +1,4 @@
+#!/usr/bin/env sh
 # Update package-lock.json if package.json changed
 if git diff --cached --name-only | grep -q "package.json"; then
   echo "package.json changed, updating package-lock.json..."
