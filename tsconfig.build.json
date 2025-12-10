@@ -3,11 +3,11 @@
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,
-    "outDir": "./dist",
+    "outDir": "./public",
     "rootDir": "./src",
     "noEmit": false,
     "emitDeclarationOnly": true
   },
   "include": ["src"],
-  "exclude": ["src/demo.tsx", "node_modules", "dist"]
+  "exclude": ["src/demo.tsx", "node_modules", "public"]
 }
