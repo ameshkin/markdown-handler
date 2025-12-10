@@ -20,16 +20,18 @@
     "clean": "rm -rf dist node_modules/.vite"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "@mui/material": "^7.0.0",
-    "@mui/icons-material": "^7.0.0",
-    "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^16.1.0",
     "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^7.0.0",
+    "@mui/material": "^7.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@vitejs/plugin-react": "^4.3.1",
@@ -39,6 +41,20 @@
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@mui/material": {
+      "optional": true
+    },
+    "@mui/icons-material": {
+      "optional": true
+    },
+    "@emotion/react": {
+      "optional": true
+    },
+    "@emotion/styled": {
+      "optional": true
+    }
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",

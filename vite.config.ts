@@ -22,6 +22,7 @@ export default defineConfig({
         '@emotion/styled',
         'react-markdown',
         'remark-gfm',
+        'react-syntax-highlighter',
       ],
       output: {
         globals: {

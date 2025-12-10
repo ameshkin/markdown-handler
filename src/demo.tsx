@@ -1,141 +1,75 @@
 /**
  * Demo/Preview page for development
+ * 
+ * Shows template showcase by default
  */
 
-import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
-import { MarkdownDocsViewer } from './components/MarkdownDocsViewer';
-import type { DocNode } from './types';
+import { TemplateShowcaseApp } from './pages/TemplateShowcase';
 
-const theme = createTheme({
+// Dark green/blue theme
+const darkGreenBlueTheme = createTheme({
   palette: {
     mode: 'dark',
+    primary: {
+      main: '#4ade80', // Green
+      light: '#86efac',
+      dark: '#22c55e',
+    },
+    secondary: {
+      main: '#60a5fa', // Blue
+      light: '#93c5fd',
+      dark: '#3b82f6',
+    },
+    background: {
+      default: '#0a1929', // Dark blue-gray
+      paper: '#132f4c', // Darker blue-gray
+    },
+    text: {
+      primary: '#e0f2fe', // Light blue
+      secondary: '#bae6fd', // Lighter blue
+    },
+    success: {
+      main: '#4ade80', // Green
+    },
+    info: {
+      main: '#60a5fa', // Blue
+    },
+  },
+  typography: {
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+  },
+  shape: {
+    borderRadius: 12,
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundImage: 'linear-gradient(135deg, #132f4c 0%, #1e3a5f 100%)',
+          border: '1px solid rgba(74, 222, 128, 0.2)',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        contained: {
+          background: 'linear-gradient(135deg, #4ade80 0%, #60a5fa 100%)',
+          '&:hover': {
+            background: 'linear-gradient(135deg, #22c55e 0%, #3b82f6 100%)',
+          },
+        },
+      },
+    },
   },
 });
 
-const sampleTree: DocNode[] = [
-  {
-    name: 'Getting Started',
-    path: 'getting-started',
-    children: [
-      {
-        name: 'Installation',
-        path: 'getting-started/installation',
-        isFile: true,
-      },
-      {
-        name: 'Quick Start',
-        path: 'getting-started/quick-start',
-        isFile: true,
-      },
-    ],
-  },
-  {
-    name: 'API Reference',
-    path: 'api',
-    children: [
-      {
-        name: 'Components',
-        path: 'api/components',
-        isFile: true,
-      },
-      {
-        name: 'Utilities',
-        path: 'api/utilities',
-        isFile: true,
-      },
-    ],
-  },
-  {
-    name: 'Examples',
-    path: 'examples',
-    isFile: true,
-  },
-];
-
-const sampleContent = `# Getting Started
-
-Welcome to the Markdown Handler library!
-
-## Installation
-
-\`\`\`bash
-npm install @ameshkin/markdown-handler
-\`\`\`
-
-## Quick Start
-
-Here's a simple example:
-
-\`\`\`tsx
-import { MarkdownDocsViewer } from '@ameshkin/markdown-handler';
-
-function App() {
-  return (
-    <MarkdownDocsViewer
-      tree={tree}
-      content={content}
-      currentPath="getting-started"
-    />
-  );
-}
-\`\`\`
-
-## Features
-
-- 📄 Markdown rendering with GitHub Flavored Markdown
-- 🎨 Beautiful Material-UI components
-- 📑 Collapsible navigation tree
-- 📱 Fully responsive
-
-## Code Blocks
-
-You can include code blocks with syntax highlighting:
-
-\`\`\`typescript
-interface DocNode {
-  name: string;
-  path: string;
-  children?: DocNode[];
-  isFile?: boolean;
-}
-\`\`\`
-
-## Lists
-
-- Item one
-- Item two
-- Item three
-
-## Tables
-
-| Feature | Status |
-|---------|--------|
-| Markdown | ✅ |
-| Navigation | ✅ |
-| Responsive | ✅ |
-
-> This is a blockquote example.
-
-Enjoy using the library! 🎉
-`;
-
 function Demo() {
-  const [currentPath, setCurrentPath] = useState('getting-started/installation');
-
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkGreenBlueTheme}>
       <CssBaseline />
-      <MarkdownDocsViewer
-        tree={sampleTree}
-        content={sampleContent}
-        currentPath={currentPath}
-        onDocClick={(path) => {
-          setCurrentPath(path);
-          console.log('Clicked:', path);
-        }}
-      />
+      <TemplateShowcaseApp />
     </ThemeProvider>
   );
 }
