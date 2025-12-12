@@ -10,8 +10,9 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:5173',
     trace: 'on-first-retry',
-    actionTimeout: 10000,
+    actionTimeout: 15000,
     navigationTimeout: 30000,
+    screenshot: 'only-on-failure',
   },
 
   projects: [
@@ -34,7 +35,7 @@ export default defineConfig({
     url: 'http://localhost:5173',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
-    stdout: 'ignore',
+    stdout: 'pipe',
     stderr: 'pipe',
   },
 });

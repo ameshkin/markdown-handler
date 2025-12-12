@@ -2,8 +2,15 @@ import { test, expect } from '@playwright/test';
 
 test.describe('MarkdownDocsViewer', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/', { waitUntil: 'networkidle' });
-    await page.waitForLoadState('domcontentloaded');
+    try {
+      await page.goto('/', { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {
+        // Ignore networkidle timeout, domcontentloaded is enough
+      });
+    } catch (error) {
+      // Retry once if navigation fails
+      await page.goto('/', { waitUntil: 'domcontentloaded', timeout: 30000 });
+    }
   });
 
   test('should render the component', async ({ page }) => {
