@@ -27,8 +27,8 @@ export const templates: Record<string, TemplateConfig> = {
           main: '#00d9ff', // Electric blue
         },
         background: {
-          default: '#050810', // Darker background
-          paper: '#0f1419', // Darker paper
+          default: '#0a0a0a', // Very dark background
+          paper: '#1a1a1a', // Dark grey
         },
       },
       shape: {
