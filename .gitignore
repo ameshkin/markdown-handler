@@ -25,3 +25,8 @@ npm-debug.log*
 
 # npmrc (contains tokens)
 .npmrc
+
+# Test outputs
+test-results/
+playwright-report/
+playwright/.cache/
