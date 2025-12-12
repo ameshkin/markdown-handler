@@ -671,10 +671,10 @@ export function TemplateShowcase() {
                     flexDirection: 'column',
                     cursor: 'pointer',
                     transition: 'transform 0.2s, box-shadow 0.2s, border-color 0.2s',
-                    background: 'linear-gradient(135deg, #132f4c 0%, #1e3a5f 100%)',
+                    background: '#1a0f2e',
                     border: template.variant === selectedTemplate 
                       ? '2px solid #a855f7' 
-                      : '1px solid rgba(96, 165, 250, 0.2)',
+                      : '1px solid rgba(168, 85, 247, 0.2)',
                     '&:hover': {
                       transform: 'translateY(-4px)',
                       boxShadow: '0 8px 24px rgba(168, 85, 247, 0.3)',
@@ -756,7 +756,7 @@ export function TemplateShowcase() {
             sx={{ 
               p: 3, 
               mb: 3,
-              background: 'linear-gradient(135deg, #132f4c 0%, #1e3a5f 100%)',
+              background: '#1a0f2e',
               border: '1px solid rgba(168, 85, 247, 0.3)',
             }}
           >
