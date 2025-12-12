@@ -823,6 +823,7 @@ export function TemplateShowcase() {
             }}
           >
             <MarkdownDocsViewer
+              key={selectedTemplate}
               tree={sampleTree}
               content={content}
               currentPath={currentPath}

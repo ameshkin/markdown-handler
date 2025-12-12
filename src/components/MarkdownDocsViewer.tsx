@@ -274,14 +274,16 @@ export function MarkdownDocsViewer({
   }, [template]);
   
   // Determine which theme to use with proper MUI theme merging
+  // Force recreation when template changes by including template in deps
   const activeTheme = useMemo(() => {
     // Template theme takes precedence
     if (templateConfig?.theme) {
       if (templateConfig.theme === 'default') {
         return createTheme();
       }
-      // Ensure it's a proper MUI Theme object
+      // Ensure it's a proper MUI Theme object - return it directly
       if (typeof templateConfig.theme === 'object') {
+        // Return the theme object directly from template
         return templateConfig.theme;
       }
       return createTheme();
@@ -295,7 +297,7 @@ export function MarkdownDocsViewer({
     }
     // If no theme prop, use context theme (assumes parent has ThemeProvider)
     return contextTheme;
-  }, [themeProp, contextTheme, templateConfig]);
+  }, [themeProp, contextTheme, templateConfig, template]);
   
   // Apply template settings
   const finalSidebarWidth = sidebarWidth ?? templateConfig?.sidebarWidth ?? 280;
