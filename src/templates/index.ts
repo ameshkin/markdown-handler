@@ -19,7 +19,17 @@ export const templates: Record<string, TemplateConfig> = {
     contentStyle: 'flat',
     theme: createTheme({
       palette: {
-        mode: 'light',
+        mode: 'dark',
+        primary: {
+          main: '#a855f7', // Purple
+        },
+        secondary: {
+          main: '#00d9ff', // Electric blue
+        },
+        background: {
+          default: '#0a0e27',
+          paper: '#151b3d',
+        },
       },
     }),
   },
@@ -37,9 +47,16 @@ export const templates: Record<string, TemplateConfig> = {
     contentStyle: 'elevated',
     theme: createTheme({
       palette: {
-        mode: 'light',
+        mode: 'dark',
         primary: {
-          main: '#1976d2',
+          main: '#00d9ff', // Electric blue
+        },
+        secondary: {
+          main: '#ec4899', // Magenta
+        },
+        background: {
+          default: '#0a0e27',
+          paper: '#1a2342',
         },
       },
       shape: {
@@ -61,9 +78,16 @@ export const templates: Record<string, TemplateConfig> = {
     contentStyle: 'outlined',
     theme: createTheme({
       palette: {
-        mode: 'light',
+        mode: 'dark',
         primary: {
-          main: '#1565c0',
+          main: '#ec4899', // Magenta
+        },
+        secondary: {
+          main: '#a855f7', // Purple
+        },
+        background: {
+          default: '#1a0f2e',
+          paper: '#2d1b3d',
         },
       },
       typography: {
@@ -87,11 +111,14 @@ export const templates: Record<string, TemplateConfig> = {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#90caf9',
+          main: '#9333ea', // Deep purple
+        },
+        secondary: {
+          main: '#00b8d9', // Darker electric blue
         },
         background: {
-          default: '#121212',
-          paper: '#1e1e1e',
+          default: '#0a0a0a',
+          paper: '#1a1a1a',
         },
       },
     }),
@@ -110,7 +137,17 @@ export const templates: Record<string, TemplateConfig> = {
     contentStyle: 'flat',
     theme: createTheme({
       palette: {
-        mode: 'light',
+        mode: 'dark',
+        primary: {
+          main: '#f472b6', // Light pink
+        },
+        secondary: {
+          main: '#00d9ff', // Electric blue
+        },
+        background: {
+          default: '#0f0a1a',
+          paper: '#1a0f2e',
+        },
       },
       spacing: 2,
     }),
@@ -129,9 +166,16 @@ export const templates: Record<string, TemplateConfig> = {
     contentStyle: 'flat',
     theme: createTheme({
       palette: {
-        mode: 'light',
+        mode: 'dark',
         primary: {
-          main: '#1976d2',
+          main: '#00d9ff', // Electric blue
+        },
+        secondary: {
+          main: '#a855f7', // Purple
+        },
+        background: {
+          default: '#0a0e27',
+          paper: '#151b3d',
         },
       },
     }),
@@ -150,9 +194,16 @@ export const templates: Record<string, TemplateConfig> = {
     contentStyle: 'elevated',
     theme: createTheme({
       palette: {
-        mode: 'light',
+        mode: 'dark',
         primary: {
-          main: '#1976d2',
+          main: '#c084fc', // Light purple
+        },
+        secondary: {
+          main: '#ec4899', // Magenta
+        },
+        background: {
+          default: '#1a0f2e',
+          paper: '#2d1b3d',
         },
       },
     }),
