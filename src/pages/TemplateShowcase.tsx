@@ -641,10 +641,7 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
           component="h1" 
           gutterBottom
           sx={{
-            background: '#a855f7',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
+            color: 'primary.main',
             fontWeight: 700,
           }}
         >
@@ -707,8 +704,8 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
                           size="small"
                           sx={{ 
                             ml: 2,
-                            background: '#a855f7',
-                            color: '#0a1929',
+                            background: 'primary.main',
+                            color: '#ffffff',
                             fontWeight: 600,
                           }}
                         />
