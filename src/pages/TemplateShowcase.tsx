@@ -264,7 +264,7 @@ Choose from 7 pre-built templates:
 <MarkdownDocsViewer
   tree={tree}
   content={content}
-  template="modern"  // minimal, modern, classic, dark, compact, wide, centered
+  template="modern"  // minimal, modern, classic, dark, light, wide, centered, blocky
 />
 \`\`\`
 
@@ -547,7 +547,7 @@ Explore all available templates and their features.
 2. **Modern** - Contemporary with shadows
 3. **Classic** - Traditional documentation style
 4. **Dark** - Dark theme optimized
-5. **Compact** - Space-efficient layout
+5. **Light** - Light theme with easy-on-the-eyes grey background
 6. **Wide** - Maximum width for large screens
 7. **Centered** - Centered content with margins
 
@@ -559,7 +559,7 @@ Explore all available templates and their features.
 | Modern | 300px | ✅ | ✅ | Elevated |
 | Classic | 280px | ✅ | ✅ | Outlined |
 | Dark | 300px | ✅ | ✅ | Elevated |
-| Compact | 240px | ✅ | ❌ | Flat |
+| Light | 240px | ✅ | ❌ | Flat |
 | Wide | 320px | ✅ | ✅ | Elevated |
 | Centered | 280px | ❌ | ✅ | Outlined |
 

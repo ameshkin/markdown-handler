@@ -111,9 +111,9 @@ export function DarkExample() {
 }
 
 // ============================================
-// Example 5: Compact Template
+// Example 5: Light Template
 // ============================================
-export function CompactExample() {
+export function LightExample() {
   const [currentPath, setCurrentPath] = useState('getting-started/installation');
 
   return (
@@ -122,7 +122,7 @@ export function CompactExample() {
       content={content}
       currentPath={currentPath}
       onDocClick={setCurrentPath}
-      template="compact"
+      template="light"
     />
   );
 }

@@ -309,10 +309,10 @@ export const templates: Record<string, TemplateConfig> = {
     }),
   },
   
-  compact: {
-    name: 'Compact',
-    description: 'Space-efficient layout for dense documentation',
-    variant: 'compact',
+  light: {
+    name: 'Light',
+    description: 'Light theme with easy-on-the-eyes grey background',
+    variant: 'light',
     sidebarWidth: 240,
     sidebarPosition: 'left',
     showSearch: true,
@@ -322,16 +322,20 @@ export const templates: Record<string, TemplateConfig> = {
     contentStyle: 'flat',
     theme: createTheme({
       palette: {
-        mode: 'dark',
+        mode: 'light',
         primary: {
-          main: '#f472b6', // Light pink
+          main: '#a855f7', // Purple
         },
         secondary: {
           main: '#00d9ff', // Electric blue
         },
         background: {
-          default: '#0f0a1a',
-          paper: '#1a0f2e',
+          default: '#f5f5f5', // Light grey
+          paper: '#ffffff',
+        },
+        text: {
+          primary: '#111111', // Dark grey/black
+          secondary: '#333333',
         },
       },
       spacing: 2,
@@ -349,19 +353,20 @@ export const templates: Record<string, TemplateConfig> = {
               borderRadius: 2,
             },
             contained: {
-              background: '#f472b6',
-              boxShadow: '0 1px 2px rgba(244, 114, 182, 0.3)',
+              background: '#a855f7',
+              color: '#ffffff',
+              boxShadow: '0 1px 2px rgba(168, 85, 247, 0.3)',
               '&:hover': {
-                background: '#ec4899',
-                boxShadow: '0 2px 4px rgba(244, 114, 182, 0.4)',
+                background: '#9333ea',
+                boxShadow: '0 2px 4px rgba(168, 85, 247, 0.4)',
               },
             },
             outlined: {
-              borderColor: '#f472b6',
-              color: '#f472b6',
+              borderColor: '#a855f7',
+              color: '#a855f7',
               '&:hover': {
-                borderColor: '#ec4899',
-                background: 'rgba(244, 114, 182, 0.08)',
+                borderColor: '#9333ea',
+                background: 'rgba(168, 85, 247, 0.08)',
               },
             },
           },
@@ -370,6 +375,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 2,
+              backgroundColor: '#ffffff',
             },
           },
         },
@@ -377,6 +383,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 2,
+              backgroundColor: '#ffffff',
             },
           },
         },

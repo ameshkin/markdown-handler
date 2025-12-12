@@ -16,7 +16,7 @@ export type TemplateVariant =
   | 'modern'
   | 'classic'
   | 'dark'
-  | 'compact'
+  | 'light'
   | 'wide'
   | 'centered'
   | 'blocky';
