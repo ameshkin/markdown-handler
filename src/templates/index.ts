@@ -410,7 +410,7 @@ export const templates: Record<string, TemplateConfig> = {
         },
         background: {
           default: '#f5f5f5', // Light grey
-          paper: '#e8e8e8', // Darker grey for cards
+          paper: '#d8d8d8', // Darker grey for cards
         },
         text: {
           primary: '#111111', // Dark grey/black
@@ -454,7 +454,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 2,
-              backgroundColor: '#e8e8e8', // Darker grey
+              backgroundColor: '#d8d8d8', // Darker grey
             },
           },
         },
@@ -462,7 +462,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 2,
-              backgroundColor: '#e8e8e8', // Darker grey
+              backgroundColor: '#d8d8d8', // Darker grey
             },
           },
         },
