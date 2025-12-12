@@ -273,20 +273,24 @@ export function MarkdownDocsViewer({
     return template;
   }, [template]);
   
-  // Determine which theme to use
+  // Determine which theme to use with proper MUI theme merging
   const activeTheme = useMemo(() => {
     // Template theme takes precedence
     if (templateConfig?.theme) {
       if (templateConfig.theme === 'default') {
         return createTheme();
       }
-      return templateConfig.theme;
+      // Ensure it's a proper MUI Theme object
+      if (typeof templateConfig.theme === 'object') {
+        return templateConfig.theme;
+      }
+      return createTheme();
     }
     
     if (themeProp === 'default') {
       return createTheme();
     }
-    if (themeProp) {
+    if (themeProp && typeof themeProp === 'object') {
       return themeProp;
     }
     // If no theme prop, use context theme (assumes parent has ThemeProvider)
@@ -545,9 +549,9 @@ export function MarkdownDocsViewer({
     </Box>
   );
 
-  // If a theme prop is provided (including 'default'), wrap in ThemeProvider
-  // Otherwise, use the context theme directly (or default if no context)
-  if (themeProp) {
+  // Always wrap in ThemeProvider if we have a template or explicit theme
+  // This ensures the theme is properly applied
+  if (templateConfig || themeProp || activeTheme !== contextTheme) {
     return <ThemeProvider theme={activeTheme}>{contentComponent}</ThemeProvider>;
   }
 
