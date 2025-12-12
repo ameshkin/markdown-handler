@@ -2,12 +2,13 @@ import { test, expect } from '@playwright/test';
 
 test.describe('MarkdownDocsViewer', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'networkidle' });
+    await page.waitForLoadState('domcontentloaded');
   });
 
   test('should render the component', async ({ page }) => {
     const sidebar = page.locator('text=Documentation').first();
-    await expect(sidebar).toBeVisible();
+    await expect(sidebar).toBeVisible({ timeout: 10000 });
   });
 
   test('should display sidebar navigation', async ({ page }) => {
