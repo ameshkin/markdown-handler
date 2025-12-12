@@ -145,9 +145,9 @@ export function WideExample() {
 }
 
 // ============================================
-// Example 7: Centered Template
+// Example 7: Spooky Template
 // ============================================
-export function CenteredExample() {
+export function SpookyExample() {
   const [currentPath, setCurrentPath] = useState('getting-started/installation');
 
   return (
@@ -156,7 +156,7 @@ export function CenteredExample() {
       content={content}
       currentPath={currentPath}
       onDocClick={setCurrentPath}
-      template="centered"
+      template="spooky"
     />
   );
 }

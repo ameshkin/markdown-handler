@@ -145,14 +145,90 @@ function DocTreeItem({ node, currentPath, level = 0, onDocClick }: DocTreeItemPr
   );
 }
 
+// Darcula theme for code highlighting (converted to react-syntax-highlighter format)
+const darculaTheme = {
+  'code[class*="language-"]': {
+    color: '#A9B7C6',
+    background: '#2B2B2B',
+    textShadow: 'none',
+    fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
+    fontSize: '1em',
+    textAlign: 'left',
+    whiteSpace: 'pre',
+    wordSpacing: 'normal',
+    wordBreak: 'normal',
+    wordWrap: 'normal',
+    lineHeight: '1.5',
+    MozTabSize: '4',
+    OTabSize: '4',
+    tabSize: '4',
+    WebkitHyphens: 'none',
+    MozHyphens: 'none',
+    msHyphens: 'none',
+    hyphens: 'none',
+  },
+  'pre[class*="language-"]': {
+    color: '#A9B7C6',
+    background: '#2B2B2B',
+    textShadow: 'none',
+    fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
+    fontSize: '1em',
+    textAlign: 'left',
+    whiteSpace: 'pre',
+    wordSpacing: 'normal',
+    wordBreak: 'normal',
+    wordWrap: 'normal',
+    lineHeight: '1.5',
+    MozTabSize: '4',
+    OTabSize: '4',
+    tabSize: '4',
+    WebkitHyphens: 'none',
+    MozHyphens: 'none',
+    msHyphens: 'none',
+    hyphens: 'none',
+    padding: '1em',
+    margin: '0.5em 0',
+    overflow: 'auto',
+  },
+  'comment': { color: '#808080', fontStyle: 'italic' },
+  'prolog': { color: '#808080', fontStyle: 'italic' },
+  'doctype': { color: '#808080', fontStyle: 'italic' },
+  'cdata': { color: '#808080', fontStyle: 'italic' },
+  'punctuation': { color: '#A9B7C6' },
+  'property': { color: '#6897BB' },
+  'tag': { color: '#6897BB' },
+  'boolean': { color: '#6897BB' },
+  'number': { color: '#6897BB' },
+  'constant': { color: '#6897BB' },
+  'symbol': { color: '#6897BB' },
+  'selector': { color: '#6A8759' },
+  'attr-name': { color: '#6A8759' },
+  'string': { color: '#6A8759' },
+  'char': { color: '#6A8759' },
+  'builtin': { color: '#6A8759' },
+  'operator': { color: '#A9B7C6' },
+  'entity': { color: '#A9B7C6' },
+  'url': { color: '#A9B7C6' },
+  'variable': { color: '#A9B7C6' },
+  'at-rule': { color: '#CC7832' },
+  'attr-value': { color: '#CC7832' },
+  'keyword': { color: '#CC7832' },
+  'function': { color: '#FFC66D' },
+  'class-name': { color: '#FFC66D' },
+  'regex': { color: '#FFC66D' },
+  'important': { color: '#FFC66D' },
+};
+
 // Code block component with copy button and language label
 function CodeBlock({ 
   children, 
-  className, 
+  className,
+  template,
   ...props 
 }: { 
   children?: React.ReactNode; 
   className?: string;
+  template?: string | unknown;
   [key: string]: unknown;
 }) {
   const theme = useTheme();
@@ -167,13 +243,14 @@ function CodeBlock({
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy code:', err);
+      // console.error('Failed to copy code:', err);
     }
   };
 
-  // Determine syntax highlighter theme based on MUI theme mode
+  // Determine syntax highlighter theme - use Darcula for Spooky template
+  const isSpooky = template === 'spooky' || (typeof template === 'object' && template && 'variant' in template && template.variant === 'spooky');
   const isDark = theme.palette.mode === 'dark';
-  const syntaxTheme = isDark ? vscDarkPlus : oneLight;
+  const syntaxTheme = isSpooky ? (darculaTheme as any) : (isDark ? vscDarkPlus : oneLight);
 
   return (
     <Box
@@ -230,7 +307,7 @@ function CodeBlock({
         customStyle={{
           margin: 0,
           padding: theme.spacing(2),
-          backgroundColor: 'transparent',
+          backgroundColor: isSpooky ? '#2B2B2B' : 'transparent',
           fontSize: '0.875rem',
         }}
         {...props}
@@ -337,7 +414,7 @@ export function MarkdownDocsViewer({
         );
       }
       return (
-        <CodeBlock className={className} {...props}>
+        <CodeBlock className={className} template={template} {...props}>
           {children}
         </CodeBlock>
       );

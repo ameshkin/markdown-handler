@@ -438,10 +438,10 @@ export const templates: Record<string, TemplateConfig> = {
     }),
   },
   
-  centered: {
-    name: 'Centered',
-    description: 'Centered content with generous margins',
-    variant: 'centered',
+  spooky: {
+    name: 'Spooky',
+    description: 'Darcula-inspired dark theme with centered content',
+    variant: 'spooky',
     sidebarWidth: 280,
     sidebarPosition: 'left',
     showSearch: false,
@@ -453,14 +453,27 @@ export const templates: Record<string, TemplateConfig> = {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#00d9ff', // Electric blue
+          main: '#A9B7C6', // Darcula text color
         },
         secondary: {
-          main: '#a855f7', // Purple
+          main: '#CC7832', // Darcula keyword/orange
         },
         background: {
-          default: '#0a0e27',
-          paper: '#151b3d',
+          default: '#2B2B2B', // Darcula background
+          paper: '#3C3F41', // Darcula panel background
+        },
+        text: {
+          primary: '#A9B7C6', // Darcula text
+          secondary: '#808080', // Darcula comments
+        },
+        success: {
+          main: '#6A8759', // Darcula strings/green
+        },
+        info: {
+          main: '#6897BB', // Darcula numbers/blue
+        },
+        warning: {
+          main: '#FFC66D', // Darcula functions/yellow
         },
       },
       shape: {
@@ -476,19 +489,20 @@ export const templates: Record<string, TemplateConfig> = {
               borderRadius: 4,
             },
             contained: {
-              background: '#00d9ff',
-              boxShadow: '0 2px 6px rgba(0, 217, 255, 0.3)',
+              background: '#CC7832',
+              color: '#2B2B2B',
+              boxShadow: '0 2px 6px rgba(204, 120, 50, 0.3)',
               '&:hover': {
-                background: '#00b8d9',
-                boxShadow: '0 4px 10px rgba(0, 217, 255, 0.4)',
+                background: '#B86A2A',
+                boxShadow: '0 4px 10px rgba(204, 120, 50, 0.4)',
               },
             },
             outlined: {
-              borderColor: '#00d9ff',
-              color: '#00d9ff',
+              borderColor: '#A9B7C6',
+              color: '#A9B7C6',
               '&:hover': {
-                borderColor: '#00b8d9',
-                background: 'rgba(0, 217, 255, 0.1)',
+                borderColor: '#CC7832',
+                background: 'rgba(204, 120, 50, 0.1)',
               },
             },
           },
@@ -497,6 +511,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 4,
+              backgroundColor: '#3C3F41',
             },
           },
         },
@@ -504,6 +519,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 4,
+              backgroundColor: '#3C3F41',
             },
           },
         },

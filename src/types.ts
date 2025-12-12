@@ -18,7 +18,7 @@ export type TemplateVariant =
   | 'dark'
   | 'light'
   | 'wide'
-  | 'centered'
+  | 'spooky'
   | 'blocky';
 
 export interface TemplateConfig {

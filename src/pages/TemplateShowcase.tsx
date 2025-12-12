@@ -264,7 +264,7 @@ Choose from 7 pre-built templates:
 <MarkdownDocsViewer
   tree={tree}
   content={content}
-  template="modern"  // minimal, modern, classic, dark, light, wide, centered, blocky
+  template="modern"  // minimal, modern, classic, dark, light, wide, spooky, blocky
 />
 \`\`\`
 
@@ -549,7 +549,7 @@ Explore all available templates and their features.
 4. **Dark** - Dark theme optimized
 5. **Light** - Light theme with easy-on-the-eyes grey background
 6. **Wide** - Maximum width for large screens
-7. **Centered** - Centered content with margins
+7. **Spooky** - Darcula-inspired dark theme with centered content
 
 ## Template Comparison
 
@@ -561,7 +561,7 @@ Explore all available templates and their features.
 | Dark | 300px | ✅ | ✅ | Elevated |
 | Light | 240px | ✅ | ❌ | Flat |
 | Wide | 320px | ✅ | ✅ | Elevated |
-| Centered | 280px | ❌ | ✅ | Outlined |
+| Spooky | 280px | ❌ | ✅ | Outlined |
 
 ## Usage
 
