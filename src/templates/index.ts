@@ -47,16 +47,16 @@ export const templates: Record<string, TemplateConfig> = {
               background: '#a855f7',
               boxShadow: '0 1px 3px rgba(168, 85, 247, 0.3)',
               '&:hover': {
-                background: '#9333ea',
-                boxShadow: '0 2px 6px rgba(168, 85, 247, 0.4)',
+                background: '#00d9ff',
+                boxShadow: '0 2px 6px rgba(0, 217, 255, 0.4)',
               },
             },
             outlined: {
               borderColor: '#a855f7',
               color: '#a855f7',
               '&:hover': {
-                borderColor: '#9333ea',
-                background: 'rgba(168, 85, 247, 0.08)',
+                borderColor: '#00d9ff',
+                background: 'rgba(0, 217, 255, 0.08)',
               },
             },
           },
