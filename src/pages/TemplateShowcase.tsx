@@ -771,14 +771,14 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
             >
               Live Preview: {templates.find(t => t.variant === selectedTemplate)?.name}
             </Typography>
-            <Typography variant="body2" sx={{ color: '#bae6fd' }} paragraph>
+            <Typography variant="body2" sx={{ color: '#ec4899' }} paragraph>
               Template: <Box
                 component="code"
                 sx={{
-                  background: 'rgba(0, 217, 255, 0.2)',
+                  background: 'rgba(168, 85, 247, 0.2)',
                   padding: '2px 6px',
                   borderRadius: '4px',
-                  color: '#00d9ff',
+                  color: '#a855f7',
                   fontFamily: 'monospace',
                 }}
               >
@@ -809,11 +809,11 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
                       },
                     }),
                     ...(selectedTemplate !== template.variant && {
-                      borderColor: 'rgba(0, 217, 255, 0.5)',
-                      color: '#00d9ff',
+                      borderColor: 'rgba(168, 85, 247, 0.5)',
+                      color: '#a855f7',
                       '&:hover': {
-                        borderColor: '#00d9ff',
-                        background: 'rgba(0, 217, 255, 0.1)',
+                        borderColor: '#a855f7',
+                        background: 'rgba(168, 85, 247, 0.1)',
                       },
                     }),
                   }}
@@ -863,10 +863,10 @@ export function TemplateShowcaseApp() {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#a855f7',
+          main: '#a855f7', // Purple
         },
         secondary: {
-          main: '#00d9ff',
+          main: '#ec4899', // Red/pink
         },
         background: {
           default: '#0a0e27',
