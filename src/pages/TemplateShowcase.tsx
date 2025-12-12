@@ -21,7 +21,11 @@ import {
   ThemeProvider,
   createTheme,
   CssBaseline,
+  Collapse,
+  IconButton,
+  Tooltip,
 } from '@mui/material';
+import { ExpandMoreOutlined, ExpandLessOutlined, ContentCopyOutlined, CheckOutlined } from '@mui/icons-material';
 import { MarkdownDocsViewer } from '../components/MarkdownDocsViewer';
 import { getAllTemplates, getTemplate } from '../templates';
 import type { DocNode, TemplateVariant } from '../types';
@@ -581,6 +585,153 @@ interface TabPanelProps {
   value: number;
 }
 
+interface TemplateThemeCodeProps {
+  template: ReturnType<typeof getAllTemplates>[0];
+}
+
+function TemplateThemeCode({ template }: TemplateThemeCodeProps) {
+  const [expanded, setExpanded] = useState(false);
+  const [copied, setCopied] = useState(false);
+  
+  // Get theme object - convert MUI theme to a serializable format
+  const getThemeObject = () => {
+    if (!template.theme || typeof template.theme !== 'object') {
+      return null;
+    }
+    
+    const theme = template.theme as ReturnType<typeof createTheme>;
+    
+    // Extract key theme properties
+    const themeObj = {
+      palette: theme.palette ? {
+        mode: theme.palette.mode,
+        primary: theme.palette.primary,
+        secondary: theme.palette.secondary,
+        background: theme.palette.background,
+        text: theme.palette.text,
+        ...(theme.palette.divider && { divider: theme.palette.divider }),
+      } : undefined,
+      typography: theme.typography ? {
+        fontFamily: theme.typography.fontFamily,
+        ...(theme.typography.h1 && { h1: theme.typography.h1 }),
+        ...(theme.typography.h2 && { h2: theme.typography.h2 }),
+        ...(theme.typography.h3 && { h3: theme.typography.h3 }),
+      } : undefined,
+      shape: theme.shape,
+      components: theme.components ? Object.keys(theme.components).reduce((acc, key) => {
+        const comp = (theme.components as Record<string, { styleOverrides?: unknown }>)?.[key];
+        if (comp?.styleOverrides) {
+          acc[key] = {
+            styleOverrides: comp.styleOverrides,
+          };
+        }
+        return acc;
+      }, {} as Record<string, unknown>) : undefined,
+    };
+    
+    return themeObj;
+  };
+  
+  const themeObj = getThemeObject();
+  const themeCode = themeObj ? JSON.stringify(themeObj, null, 2) : '// Theme object not available';
+  
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(themeCode);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      // console.error('Failed to copy:', err);
+    }
+  };
+  
+  if (!themeObj) return null;
+  
+  return (
+    <Box>
+      <Button
+        size="small"
+        variant="outlined"
+        onClick={(e) => {
+          e.stopPropagation();
+          setExpanded(!expanded);
+        }}
+        sx={{
+          borderColor: 'rgba(168, 85, 247, 0.5)',
+          color: '#a855f7',
+          '&:hover': {
+            borderColor: '#a855f7',
+            background: 'rgba(168, 85, 247, 0.1)',
+          },
+        }}
+        endIcon={expanded ? <ExpandLessOutlined /> : <ExpandMoreOutlined />}
+      >
+        {expanded ? 'Hide' : 'Show'} Theme Object
+      </Button>
+      <Collapse in={expanded}>
+        <Box
+          sx={{
+            mt: 2,
+            p: 2,
+            backgroundColor: '#0a0a0a',
+            border: '1px solid rgba(168, 85, 247, 0.3)',
+            borderRadius: 1,
+            position: 'relative',
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: 1,
+            }}
+          >
+            <Typography variant="caption" sx={{ color: '#bae6fd' }}>
+              MUI Theme Object
+            </Typography>
+            <Tooltip title={copied ? 'Copied!' : 'Copy code'}>
+              <IconButton
+                size="small"
+                onClick={handleCopy}
+                sx={{
+                  color: '#a855f7',
+                  '&:hover': {
+                    backgroundColor: 'rgba(168, 85, 247, 0.1)',
+                  },
+                }}
+              >
+                {copied ? (
+                  <CheckOutlined sx={{ fontSize: 16, color: '#4ade80' }} />
+                ) : (
+                  <ContentCopyOutlined sx={{ fontSize: 16 }} />
+                )}
+              </IconButton>
+            </Tooltip>
+          </Box>
+          <Box
+            component="pre"
+            sx={{
+              margin: 0,
+              padding: 2,
+              backgroundColor: '#000000',
+              borderRadius: 1,
+              overflow: 'auto',
+              fontSize: '0.75rem',
+              fontFamily: 'monospace',
+              color: '#e5e7eb',
+              maxHeight: '400px',
+              border: '1px solid rgba(168, 85, 247, 0.2)',
+            }}
+          >
+            {themeCode}
+          </Box>
+        </Box>
+      </Collapse>
+    </Box>
+  );
+}
+
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
@@ -754,6 +905,34 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
         </TabPanel>
 
         <TabPanel value={tabValue} index={1}>
+          <Paper 
+            sx={{ 
+              p: 3, 
+              mb: 3,
+              background: '#151b3d',
+              border: '1px solid rgba(168, 85, 247, 0.3)',
+            }}
+          >
+            <Typography 
+              variant="h5" 
+              gutterBottom
+              sx={{
+                color: '#a855f7',
+                fontWeight: 600,
+                mb: 2,
+              }}
+            >
+              Custom Templates
+            </Typography>
+            <Typography variant="body1" sx={{ color: '#ec4899', mb: 2 }} paragraph>
+              You can create custom templates by copying the MUI theme object from any template below and modifying it. 
+              Each template card shows its theme configuration that you can use with the <code>theme</code> prop or in your own <code>sx</code> styles.
+            </Typography>
+            <Typography variant="body2" sx={{ color: '#bae6fd' }} paragraph>
+              Simply copy the theme object code from any template and customize it to match your brand or design preferences.
+            </Typography>
+          </Paper>
+          
           <Grid container spacing={3}>
             {templates.map((template) => (
               <Grid size={{ xs: 12, md: 6, lg: 4 }} key={template.variant}>
@@ -850,7 +1029,7 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
                       />
                     </Box>
                   </CardContent>
-                  <CardActions>
+                  <CardActions sx={{ flexDirection: 'column', alignItems: 'stretch', gap: 1 }}>
                     <Button
                       size="small"
                       variant={selectedTemplate === template.variant ? 'contained' : 'outlined'}
@@ -878,6 +1057,7 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
                     >
                       {selectedTemplate === template.variant ? 'Selected' : 'Select'}
                     </Button>
+                    <TemplateThemeCode template={template} />
                   </CardActions>
                 </Card>
               </Grid>
