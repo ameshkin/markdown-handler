@@ -12,7 +12,7 @@ export interface DocNode {
 import type { Theme, SxProps } from '@mui/material/styles';
 
 export type TemplateVariant = 
-  | 'minimal'
+  | 'default'
   | 'modern'
   | 'classic'
   | 'dark'

@@ -43,9 +43,9 @@ npm install @ameshkin/markdown-handler
 `;
 
 // ============================================
-// Example 1: Minimal Template
+// Example 1: Default Template
 // ============================================
-export function MinimalExample() {
+export function DefaultExample() {
   const [currentPath, setCurrentPath] = useState('getting-started/installation');
 
   return (
@@ -54,7 +54,7 @@ export function MinimalExample() {
       content={content}
       currentPath={currentPath}
       onDocClick={setCurrentPath}
-      template="minimal"
+      template="default"
     />
   );
 }

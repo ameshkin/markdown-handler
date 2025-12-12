@@ -264,7 +264,7 @@ Choose from 7 pre-built templates:
 <MarkdownDocsViewer
   tree={tree}
   content={content}
-  template="modern"  // minimal, modern, classic, dark, light, wide, spooky, blocky
+  template="modern"  // default, modern, classic, dark, light, wide, spooky, blocky
 />
 \`\`\`
 
@@ -434,7 +434,7 @@ interface TemplateConfig {
 
 A simple example to get you started.
 
-## Minimal Setup
+## Default Setup
 
 \`\`\`tsx
 import { MarkdownDocsViewer } from '@ameshkin/markdown-handler';
@@ -543,7 +543,7 @@ Explore all available templates and their features.
 
 ## Available Templates
 
-1. **Minimal** - Clean and simple design
+1. **Default** - Clean and simple design
 2. **Modern** - Contemporary with shadows
 3. **Classic** - Traditional documentation style
 4. **Dark** - Dark theme optimized
@@ -555,7 +555,7 @@ Explore all available templates and their features.
 
 | Template | Sidebar Width | Search | Breadcrumbs | Style |
 |----------|---------------|--------|-------------|-------|
-| Minimal | 260px | ❌ | ❌ | Flat |
+| Default | 260px | ❌ | ❌ | Flat |
 | Modern | 300px | ✅ | ✅ | Elevated |
 | Classic | 280px | ✅ | ✅ | Outlined |
 | Dark | 300px | ✅ | ✅ | Elevated |

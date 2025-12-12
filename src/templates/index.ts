@@ -6,10 +6,10 @@ import { createTheme } from '@mui/material/styles';
 import type { TemplateConfig } from '../types';
 
 export const templates: Record<string, TemplateConfig> = {
-  minimal: {
-    name: 'Minimal',
+  default: {
+    name: 'Default',
     description: 'Clean and simple design with minimal styling',
-    variant: 'minimal',
+    variant: 'default',
     sidebarWidth: 260,
     sidebarPosition: 'left',
     showSearch: false,
