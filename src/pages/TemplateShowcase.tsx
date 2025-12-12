@@ -719,17 +719,41 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
                         label={`Width: ${template.sidebarWidth}px`}
                         size="small"
                         variant="outlined"
+                        sx={{
+                          borderColor: '#a855f7',
+                          color: '#a855f7',
+                        }}
                       />
                       {template.showSearch && (
-                        <Chip label="Search" size="small" variant="outlined" />
+                        <Chip 
+                          label="Search" 
+                          size="small" 
+                          variant="outlined"
+                          sx={{
+                            borderColor: '#a855f7',
+                            color: '#a855f7',
+                          }}
+                        />
                       )}
                       {template.showBreadcrumbs && (
-                        <Chip label="Breadcrumbs" size="small" variant="outlined" />
+                        <Chip 
+                          label="Breadcrumbs" 
+                          size="small" 
+                          variant="outlined"
+                          sx={{
+                            borderColor: '#a855f7',
+                            color: '#a855f7',
+                          }}
+                        />
                       )}
                       <Chip
                         label={template.sidebarStyle || 'flat'}
                         size="small"
                         variant="outlined"
+                        sx={{
+                          borderColor: '#a855f7',
+                          color: '#a855f7',
+                        }}
                       />
                     </Box>
                   </CardContent>
