@@ -30,3 +30,8 @@ npm-debug.log*
 test-results/
 playwright-report/
 playwright/.cache/
+
+# Compiled JS files (should only be in public/)
+src/**/*.js
+!src/**/*.test.js
+!src/**/*.spec.js
