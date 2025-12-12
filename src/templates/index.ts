@@ -81,7 +81,7 @@ export const templates: Record<string, TemplateConfig> = {
   
   modern: {
     name: 'Modern',
-    description: 'Contemporary design with subtle shadows and rounded corners',
+    description: 'Prisma-inspired modern design with clean aesthetics',
     variant: 'modern',
     sidebarWidth: 300,
     sidebarPosition: 'left',
@@ -94,44 +94,69 @@ export const templates: Record<string, TemplateConfig> = {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#00d9ff', // Electric blue
+          main: '#2DCE89', // Prisma green
+          light: '#4ADE80',
+          dark: '#22C55E',
         },
         secondary: {
-          main: '#ec4899', // Magenta
+          main: '#6366F1', // Indigo accent
+          light: '#818CF8',
+          dark: '#4F46E5',
         },
         background: {
-          default: '#0a0e27',
-          paper: '#1a2342',
+          default: '#0A0E27', // Very dark blue-black
+          paper: '#111827', // Dark grey-blue
+        },
+        text: {
+          primary: '#F9FAFB', // Almost white
+          secondary: '#9CA3AF', // Light grey
+        },
+        divider: 'rgba(255, 255, 255, 0.1)',
+      },
+      typography: {
+        fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+        h1: {
+          fontWeight: 700,
+          letterSpacing: '-0.02em',
+        },
+        h2: {
+          fontWeight: 700,
+          letterSpacing: '-0.01em',
+        },
+        h3: {
+          fontWeight: 600,
         },
       },
       shape: {
-        borderRadius: 6,
+        borderRadius: 8,
       },
       components: {
         MuiButton: {
           styleOverrides: {
             root: {
-              padding: '10px 20px',
+              padding: '10px 24px',
               textTransform: 'none',
-              fontWeight: 500,
-              borderRadius: 6,
+              fontWeight: 600,
+              borderRadius: 8,
+              fontSize: '0.9375rem',
             },
             contained: {
-              background: '#00d9ff',
-              boxShadow: '0 2px 8px rgba(0, 217, 255, 0.4)',
+              background: '#2DCE89',
+              color: '#0A0E27',
+              boxShadow: '0 4px 14px rgba(45, 206, 137, 0.3)',
               '&:hover': {
-                background: '#00b8d9',
-                boxShadow: '0 4px 12px rgba(0, 217, 255, 0.5)',
+                background: '#22C55E',
+                boxShadow: '0 6px 20px rgba(45, 206, 137, 0.4)',
                 transform: 'translateY(-1px)',
               },
             },
             outlined: {
-              borderColor: '#00d9ff',
-              color: '#00d9ff',
+              borderColor: '#2DCE89',
+              color: '#2DCE89',
               borderWidth: '2px',
               '&:hover': {
-                borderColor: '#00b8d9',
-                background: 'rgba(0, 217, 255, 0.1)',
+                borderColor: '#22C55E',
+                background: 'rgba(45, 206, 137, 0.1)',
                 borderWidth: '2px',
               },
             },
@@ -140,14 +165,26 @@ export const templates: Record<string, TemplateConfig> = {
         MuiCard: {
           styleOverrides: {
             root: {
-              borderRadius: 6,
+              borderRadius: 8,
+              backgroundColor: '#111827',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
             },
           },
         },
         MuiPaper: {
           styleOverrides: {
             root: {
-              borderRadius: 6,
+              borderRadius: 8,
+              backgroundColor: '#111827',
+            },
+          },
+        },
+        MuiChip: {
+          styleOverrides: {
+            root: {
+              backgroundColor: 'rgba(45, 206, 137, 0.15)',
+              color: '#2DCE89',
+              border: '1px solid rgba(45, 206, 137, 0.3)',
             },
           },
         },
