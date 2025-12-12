@@ -194,7 +194,7 @@ export const templates: Record<string, TemplateConfig> = {
   
   classic: {
     name: 'Classic',
-    description: 'Traditional documentation style with clear hierarchy',
+    description: 'Retro terminal style with black background and green text',
     variant: 'classic',
     sidebarWidth: 280,
     sidebarPosition: 'left',
@@ -207,18 +207,45 @@ export const templates: Record<string, TemplateConfig> = {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#ec4899', // Magenta
+          main: '#00FF41', // Terminal green
+          light: '#39FF6F',
+          dark: '#00CC33',
         },
         secondary: {
-          main: '#a855f7', // Purple
+          main: '#FFFFFF', // White
+          light: '#FFFFFF',
+          dark: '#CCCCCC',
         },
         background: {
-          default: '#1a0f2e',
-          paper: '#2d1b3d',
+          default: '#000000', // Pure black
+          paper: '#0A0A0A', // Very dark grey
         },
+        text: {
+          primary: '#00FF41', // Terminal green
+          secondary: '#FFFFFF', // White
+        },
+        divider: 'rgba(0, 255, 65, 0.3)',
       },
       typography: {
-        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+        fontFamily: '"Courier New", "Monaco", "Menlo", monospace',
+        h1: {
+          fontWeight: 700,
+          color: '#00FF41',
+        },
+        h2: {
+          fontWeight: 700,
+          color: '#00FF41',
+        },
+        h3: {
+          fontWeight: 600,
+          color: '#00FF41',
+        },
+        body1: {
+          color: '#FFFFFF',
+        },
+        body2: {
+          color: '#FFFFFF',
+        },
       },
       shape: {
         borderRadius: 2,
@@ -233,22 +260,24 @@ export const templates: Record<string, TemplateConfig> = {
               fontSize: '0.75rem',
               letterSpacing: '0.5px',
               borderRadius: 2,
+              fontFamily: '"Courier New", "Monaco", "Menlo", monospace',
             },
             contained: {
-              background: '#ec4899',
-              boxShadow: '0 2px 4px rgba(236, 72, 153, 0.3)',
+              background: '#00FF41',
+              color: '#000000',
+              boxShadow: '0 0 10px rgba(0, 255, 65, 0.5)',
               '&:hover': {
-                background: '#db2777',
-                boxShadow: '0 4px 8px rgba(236, 72, 153, 0.4)',
+                background: '#00CC33',
+                boxShadow: '0 0 15px rgba(0, 255, 65, 0.7)',
               },
             },
             outlined: {
-              borderColor: '#ec4899',
-              color: '#ec4899',
+              borderColor: '#00FF41',
+              color: '#00FF41',
               borderWidth: '2px',
               '&:hover': {
-                borderColor: '#db2777',
-                background: 'rgba(236, 72, 153, 0.1)',
+                borderColor: '#00CC33',
+                background: 'rgba(0, 255, 65, 0.1)',
                 borderWidth: '2px',
               },
             },
@@ -258,7 +287,8 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 2,
-              border: '1px solid rgba(236, 72, 153, 0.2)',
+              border: '2px solid #00FF41',
+              backgroundColor: '#000000',
             },
           },
         },
@@ -266,6 +296,18 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 2,
+              backgroundColor: '#000000',
+              border: '1px solid #00FF41',
+            },
+          },
+        },
+        MuiChip: {
+          styleOverrides: {
+            root: {
+              backgroundColor: 'rgba(0, 255, 65, 0.2)',
+              color: '#00FF41',
+              border: '1px solid #00FF41',
+              fontFamily: '"Courier New", "Monaco", "Menlo", monospace',
             },
           },
         },
