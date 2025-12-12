@@ -334,14 +334,15 @@ export const templates: Record<string, TemplateConfig> = {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#9333ea', // Deep purple
+          main: '#1e3a8a', // Navy blue
+          light: '#3b82f6', // Lighter navy blue
         },
         secondary: {
-          main: '#00b8d9', // Darker electric blue
+          main: '#1e3a8a', // Navy blue
         },
         background: {
           default: '#000000', // Pure black
-          paper: '#2d1b3d', // Darker purple
+          paper: '#0a1929', // Navy dark blue
         },
       },
       shape: {
@@ -357,19 +358,19 @@ export const templates: Record<string, TemplateConfig> = {
               borderRadius: 4,
             },
             contained: {
-              background: '#9333ea',
-              boxShadow: '0 3px 10px rgba(147, 51, 234, 0.4)',
+              background: '#1e3a8a',
+              boxShadow: '0 3px 10px rgba(30, 58, 138, 0.4)',
               '&:hover': {
-                background: '#7e22ce',
-                boxShadow: '0 5px 15px rgba(147, 51, 234, 0.5)',
+                background: '#3b82f6',
+                boxShadow: '0 5px 15px rgba(30, 58, 138, 0.5)',
               },
             },
             outlined: {
-              borderColor: '#9333ea',
-              color: '#9333ea',
+              borderColor: '#1e3a8a',
+              color: '#1e3a8a',
               '&:hover': {
-                borderColor: '#7e22ce',
-                background: 'rgba(147, 51, 234, 0.1)',
+                borderColor: '#3b82f6',
+                background: 'rgba(30, 58, 138, 0.1)',
               },
             },
           },
@@ -378,7 +379,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 4,
-              backgroundColor: '#2d1b3d', // Darker purple
+              backgroundColor: '#0a1929', // Navy dark blue
             },
           },
         },
@@ -386,7 +387,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 4,
-              backgroundColor: '#2d1b3d', // Darker purple
+              backgroundColor: '#0a1929', // Navy dark blue
             },
           },
         },
