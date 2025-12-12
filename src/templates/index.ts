@@ -649,7 +649,7 @@ export const templates: Record<string, TemplateConfig> = {
   
   blocky: {
     name: 'Blocky',
-    description: 'Sharp edges and bold geometric design',
+    description: 'Roblox-style with big borders and navy blue background',
     variant: 'blocky',
     sidebarWidth: 300,
     sidebarPosition: 'left',
@@ -662,14 +662,19 @@ export const templates: Record<string, TemplateConfig> = {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#00d9ff', // Electric blue
+          main: '#e5e7eb', // Grey white
+          light: '#f9fafb', // Lighter grey white
         },
         secondary: {
-          main: '#ec4899', // Magenta
+          main: '#e5e7eb', // Grey white
         },
         background: {
-          default: '#0a0e27',
-          paper: '#151b3d',
+          default: '#1e3a8a', // Navy blue
+          paper: '#1e3a8a', // Navy blue
+        },
+        text: {
+          primary: '#e5e7eb', // Grey white
+          secondary: '#d1d5db', // Light grey
         },
       },
       shape: {
@@ -680,24 +685,31 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 0,
-              padding: '10px 20px',
+              padding: '12px 24px',
               textTransform: 'none',
-              fontWeight: 600,
+              fontWeight: 700,
+              border: '4px solid #e5e7eb', // Big Roblox-style border
+              fontSize: '1rem',
             },
             contained: {
-              background: '#00d9ff',
+              background: '#e5e7eb',
+              color: '#1e3a8a',
+              border: '4px solid #e5e7eb',
               boxShadow: 'none',
               '&:hover': {
-                background: '#00b8d9',
+                background: '#f9fafb',
+                border: '4px solid #f9fafb',
                 boxShadow: 'none',
               },
             },
             outlined: {
-              borderWidth: '2px',
-              borderColor: '#00d9ff',
+              border: '4px solid #e5e7eb', // Big border
+              color: '#e5e7eb',
+              background: 'transparent',
               '&:hover': {
-                borderWidth: '2px',
-                background: 'rgba(0, 217, 255, 0.1)',
+                border: '4px solid #f9fafb',
+                color: '#f9fafb',
+                background: 'rgba(229, 231, 235, 0.1)',
               },
             },
           },
@@ -706,7 +718,8 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 0,
-              border: '2px solid rgba(0, 217, 255, 0.3)',
+              backgroundColor: '#1e3a8a', // Navy blue
+              border: '4px solid #e5e7eb', // Big Roblox-style border
             },
           },
         },
@@ -714,6 +727,19 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 0,
+              backgroundColor: '#1e3a8a', // Navy blue
+              border: '4px solid #e5e7eb', // Big Roblox-style border
+            },
+          },
+        },
+        MuiChip: {
+          styleOverrides: {
+            root: {
+              borderRadius: 0,
+              border: '3px solid #e5e7eb', // Big border
+              backgroundColor: 'rgba(229, 231, 235, 0.1)',
+              color: '#e5e7eb',
+              fontWeight: 600,
             },
           },
         },
