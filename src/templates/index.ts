@@ -336,8 +336,8 @@ export const templates: Record<string, TemplateConfig> = {
           main: '#00b8d9', // Darker electric blue
         },
         background: {
-          default: '#0a0a0a',
-          paper: '#1a1a1a',
+          default: '#000000', // Pure black
+          paper: '#2d1b3d', // Darker purple
         },
       },
       shape: {
@@ -374,6 +374,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 4,
+              backgroundColor: '#2d1b3d', // Darker purple
             },
           },
         },
@@ -381,6 +382,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 4,
+              backgroundColor: '#2d1b3d', // Darker purple
             },
           },
         },
