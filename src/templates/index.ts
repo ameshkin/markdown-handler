@@ -669,8 +669,8 @@ export const templates: Record<string, TemplateConfig> = {
           main: '#e5e7eb', // Grey white
         },
         background: {
-          default: '#1e3a8a', // Navy blue
-          paper: '#1e3a8a', // Navy blue
+          default: '#111111', // Very dark grey
+          paper: '#0a1929', // Very dark blue
         },
         text: {
           primary: '#e5e7eb', // Grey white
@@ -718,7 +718,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 0,
-              backgroundColor: '#1e3a8a', // Navy blue
+              backgroundColor: '#0a1929', // Very dark blue
               border: '4px solid #e5e7eb', // Big Roblox-style border
             },
           },
@@ -727,7 +727,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 0,
-              backgroundColor: '#1e3a8a', // Navy blue
+              backgroundColor: '#0a1929', // Very dark blue
               border: '4px solid #e5e7eb', // Big Roblox-style border
             },
           },
