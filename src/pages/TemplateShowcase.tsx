@@ -4,7 +4,7 @@
  * Displays all available templates with live previews
  */
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import {
   Box,
   Container,
@@ -23,7 +23,7 @@ import {
   CssBaseline,
 } from '@mui/material';
 import { MarkdownDocsViewer } from '../components/MarkdownDocsViewer';
-import { getAllTemplates } from '../templates';
+import { getAllTemplates, getTemplate } from '../templates';
 import type { DocNode, TemplateVariant } from '../types';
 
 const sampleTree: DocNode[] = [
@@ -207,7 +207,7 @@ Get up and running in minutes with this simple example.
 ## Basic Setup
 
 \`\`\`tsx
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { MarkdownDocsViewer } from '@ameshkin/markdown-handler';
 import type { DocNode } from '@ameshkin/markdown-handler';
 
@@ -461,7 +461,7 @@ Welcome to the documentation!
 ## With Navigation
 
 \`\`\`tsx
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { MarkdownDocsViewer } from '@ameshkin/markdown-handler';
 
 function App() {
@@ -597,8 +597,12 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-export function TemplateShowcase() {
-  const [selectedTemplate, setSelectedTemplate] = useState<TemplateVariant>('modern');
+interface TemplateShowcaseProps {
+  selectedTemplate: TemplateVariant;
+  setSelectedTemplate: (template: TemplateVariant) => void;
+}
+
+export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: TemplateShowcaseProps) {
   const [currentPath, setCurrentPath] = useState('getting-started/installation');
   const [tabValue, setTabValue] = useState(0);
   
@@ -629,7 +633,6 @@ export function TemplateShowcase() {
       sx={{ 
         minHeight: '100vh', 
         bgcolor: 'background.default',
-        background: 'linear-gradient(135deg, #0a1929 0%, #0f2541 50%, #0a1929 100%)',
       }}
     >
       <Container maxWidth="xl" sx={{ py: 4 }}>
@@ -840,106 +843,39 @@ export function TemplateShowcase() {
 
 // Standalone version with theme
 export function TemplateShowcaseApp() {
-  const darkPurpleElectricBlueMagentaTheme = createTheme({
-    palette: {
-      mode: 'dark',
-      primary: {
-        main: '#a855f7', // Purple
-        light: '#c084fc',
-        dark: '#9333ea',
-      },
-      secondary: {
-        main: '#00d9ff', // Electric blue
-        light: '#33e0ff',
-        dark: '#00b8d9',
-      },
-      error: {
-        main: '#ec4899', // Magenta/pink
-        light: '#f472b6',
-        dark: '#db2777',
-      },
-      background: {
-        default: '#0a0e27', // Very dark blue-purple
-        paper: '#151b3d', // Dark purple-blue
-      },
-      text: {
-        primary: '#e0f2fe', // Light electric blue
-        secondary: '#bae6fd', // Lighter blue
-      },
-      success: {
-        main: '#00d9ff', // Electric blue
-      },
-      info: {
-        main: '#a855f7', // Purple
-      },
-    },
-    typography: {
-      fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
-    },
-    shape: {
-      borderRadius: 12,
-    },
-    components: {
-      MuiCard: {
-        styleOverrides: {
-          root: {
-            background: '#151b3d',
-            border: '1px solid rgba(0, 217, 255, 0.3)',
-            boxShadow: '0 8px 32px rgba(0, 217, 255, 0.15), 0 4px 16px rgba(168, 85, 247, 0.15)',
-            '&:hover': {
-              border: '1px solid rgba(0, 217, 255, 0.6)',
-              boxShadow: '0 12px 48px rgba(0, 217, 255, 0.3), 0 6px 24px rgba(236, 72, 153, 0.3)',
-            },
-          },
+  const [selectedTemplate, setSelectedTemplate] = useState<TemplateVariant>('modern');
+  
+  // Get the selected template's theme for the entire page
+  const pageTheme = useMemo(() => {
+    const template = getTemplate(selectedTemplate);
+    if (template?.theme && typeof template.theme === 'object') {
+      return template.theme;
+    }
+    // Fallback to default dark theme
+    return createTheme({
+      palette: {
+        mode: 'dark',
+        primary: {
+          main: '#a855f7',
+        },
+        secondary: {
+          main: '#00d9ff',
+        },
+        background: {
+          default: '#0a0e27',
+          paper: '#151b3d',
         },
       },
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            padding: '8px 16px',
-            textTransform: 'none',
-            fontWeight: 500,
-          },
-          contained: {
-            background: '#a855f7',
-            boxShadow: '0 2px 8px rgba(168, 85, 247, 0.3)',
-            '&:hover': {
-              background: '#9333ea',
-              boxShadow: '0 4px 12px rgba(168, 85, 247, 0.4)',
-            },
-          },
-          outlined: {
-            border: '1px solid rgba(0, 217, 255, 0.6)',
-            padding: '8px 16px',
-            '&:hover': {
-              background: 'rgba(0, 217, 255, 0.1)',
-              border: '1px solid rgba(0, 217, 255, 0.9)',
-            },
-          },
-        },
-      },
-      MuiPaper: {
-        styleOverrides: {
-          root: {
-            background: '#151b3d',
-          },
-        },
-      },
-      MuiChip: {
-        styleOverrides: {
-          root: {
-            background: 'rgba(0, 217, 255, 0.2)',
-            border: '1px solid rgba(0, 217, 255, 0.4)',
-          },
-        },
-      },
-    },
-  });
+    });
+  }, [selectedTemplate]);
 
   return (
-    <ThemeProvider theme={darkPurpleElectricBlueMagentaTheme}>
+    <ThemeProvider theme={pageTheme}>
       <CssBaseline />
-      <TemplateShowcase />
+      <TemplateShowcase 
+        selectedTemplate={selectedTemplate}
+        setSelectedTemplate={setSelectedTemplate}
+      />
     </ThemeProvider>
   );
 }
