@@ -758,6 +758,7 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
               mb: 3,
               background: '#151b3d',
               border: '1px solid rgba(168, 85, 247, 0.3)',
+              minHeight: '180px',
             }}
           >
             <Typography 
@@ -770,7 +771,7 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
             >
               Live Preview: {templates.find(t => t.variant === selectedTemplate)?.name}
             </Typography>
-            <Typography variant="body2" color="text.secondary" paragraph>
+            <Typography variant="body2" sx={{ color: '#bae6fd' }} paragraph>
               Template: <Box
                 component="code"
                 sx={{
