@@ -31,6 +31,25 @@ export const templates: Record<string, TemplateConfig> = {
           paper: '#151b3d',
         },
       },
+      shape: {
+        borderRadius: 2,
+      },
+      components: {
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              padding: '8px 16px',
+              textTransform: 'none',
+            },
+            contained: {
+              background: '#a855f7',
+              '&:hover': {
+                background: '#9333ea',
+              },
+            },
+          },
+        },
+      },
     }),
   },
   
@@ -60,7 +79,23 @@ export const templates: Record<string, TemplateConfig> = {
         },
       },
       shape: {
-        borderRadius: 12,
+        borderRadius: 6,
+      },
+      components: {
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              padding: '8px 16px',
+              textTransform: 'none',
+            },
+            contained: {
+              background: '#00d9ff',
+              '&:hover': {
+                background: '#00b8d9',
+              },
+            },
+          },
+        },
       },
     }),
   },
@@ -93,6 +128,25 @@ export const templates: Record<string, TemplateConfig> = {
       typography: {
         fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       },
+      shape: {
+        borderRadius: 2,
+      },
+      components: {
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              padding: '8px 16px',
+              textTransform: 'none',
+            },
+            contained: {
+              background: '#ec4899',
+              '&:hover': {
+                background: '#db2777',
+              },
+            },
+          },
+        },
+      },
     }),
   },
   
@@ -119,6 +173,25 @@ export const templates: Record<string, TemplateConfig> = {
         background: {
           default: '#0a0a0a',
           paper: '#1a1a1a',
+        },
+      },
+      shape: {
+        borderRadius: 4,
+      },
+      components: {
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              padding: '8px 16px',
+              textTransform: 'none',
+            },
+            contained: {
+              background: '#9333ea',
+              '&:hover': {
+                background: '#7e22ce',
+              },
+            },
+          },
         },
       },
     }),
@@ -150,6 +223,25 @@ export const templates: Record<string, TemplateConfig> = {
         },
       },
       spacing: 2,
+      shape: {
+        borderRadius: 2,
+      },
+      components: {
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              padding: '6px 12px',
+              textTransform: 'none',
+            },
+            contained: {
+              background: '#f472b6',
+              '&:hover': {
+                background: '#ec4899',
+              },
+            },
+          },
+        },
+      },
     }),
   },
   
@@ -178,6 +270,25 @@ export const templates: Record<string, TemplateConfig> = {
           paper: '#151b3d',
         },
       },
+      shape: {
+        borderRadius: 4,
+      },
+      components: {
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              padding: '8px 16px',
+              textTransform: 'none',
+            },
+            contained: {
+              background: '#00d9ff',
+              '&:hover': {
+                background: '#00b8d9',
+              },
+            },
+          },
+        },
+      },
     }),
   },
   
@@ -204,6 +315,83 @@ export const templates: Record<string, TemplateConfig> = {
         background: {
           default: '#1a0f2e',
           paper: '#2d1b3d',
+        },
+      },
+      shape: {
+        borderRadius: 4,
+      },
+    }),
+  },
+  
+  blocky: {
+    name: 'Blocky',
+    description: 'Sharp edges and bold geometric design',
+    variant: 'blocky',
+    sidebarWidth: 300,
+    sidebarPosition: 'left',
+    showSearch: true,
+    showBreadcrumbs: true,
+    contentMaxWidth: 1000,
+    sidebarStyle: 'outlined',
+    contentStyle: 'outlined',
+    theme: createTheme({
+      palette: {
+        mode: 'dark',
+        primary: {
+          main: '#00d9ff', // Electric blue
+        },
+        secondary: {
+          main: '#ec4899', // Magenta
+        },
+        background: {
+          default: '#0a0e27',
+          paper: '#151b3d',
+        },
+      },
+      shape: {
+        borderRadius: 0,
+      },
+      components: {
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              borderRadius: 0,
+              padding: '10px 20px',
+              textTransform: 'none',
+              fontWeight: 600,
+            },
+            contained: {
+              background: '#00d9ff',
+              boxShadow: 'none',
+              '&:hover': {
+                background: '#00b8d9',
+                boxShadow: 'none',
+              },
+            },
+            outlined: {
+              borderWidth: '2px',
+              borderColor: '#00d9ff',
+              '&:hover': {
+                borderWidth: '2px',
+                background: 'rgba(0, 217, 255, 0.1)',
+              },
+            },
+          },
+        },
+        MuiCard: {
+          styleOverrides: {
+            root: {
+              borderRadius: 0,
+              border: '2px solid rgba(0, 217, 255, 0.3)',
+            },
+          },
+        },
+        MuiPaper: {
+          styleOverrides: {
+            root: {
+              borderRadius: 0,
+            },
+          },
         },
       },
     }),

@@ -46,7 +46,7 @@ const darkPurpleElectricBlueMagentaTheme = createTheme({
     fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
   },
   shape: {
-    borderRadius: 12,
+    borderRadius: 4,
   },
   components: {
     MuiCard: {
@@ -64,17 +64,22 @@ const darkPurpleElectricBlueMagentaTheme = createTheme({
     },
     MuiButton: {
       styleOverrides: {
+        root: {
+          padding: '8px 16px',
+          textTransform: 'none',
+          fontWeight: 500,
+        },
         contained: {
-          background: 'linear-gradient(135deg, #a855f7 0%, #00d9ff 50%, #ec4899 100%)',
-          boxShadow: '0 4px 16px rgba(0, 217, 255, 0.4), 0 2px 8px rgba(236, 72, 153, 0.3)',
+          background: '#a855f7',
+          boxShadow: '0 2px 8px rgba(168, 85, 247, 0.3)',
           '&:hover': {
-            background: 'linear-gradient(135deg, #9333ea 0%, #00b8d9 50%, #db2777 100%)',
-            boxShadow: '0 6px 24px rgba(0, 217, 255, 0.5), 0 4px 12px rgba(236, 72, 153, 0.4)',
-            transform: 'translateY(-2px)',
+            background: '#9333ea',
+            boxShadow: '0 4px 12px rgba(168, 85, 247, 0.4)',
           },
         },
         outlined: {
           border: '1px solid rgba(0, 217, 255, 0.6)',
+          padding: '8px 16px',
           '&:hover': {
             background: 'rgba(0, 217, 255, 0.1)',
             border: '1px solid rgba(0, 217, 255, 0.9)',
