@@ -774,10 +774,10 @@ export function TemplateShowcase() {
               Template: <Box
                 component="code"
                 sx={{
-                  background: 'rgba(96, 165, 250, 0.2)',
+                  background: 'rgba(0, 217, 255, 0.2)',
                   padding: '2px 6px',
                   borderRadius: '4px',
-                  color: '#60a5fa',
+                  color: '#00d9ff',
                   fontFamily: 'monospace',
                 }}
               >
@@ -795,15 +795,15 @@ export function TemplateShowcase() {
                     ...(selectedTemplate === template.variant && {
                       background: 'linear-gradient(135deg, #a855f7 0%, #00d9ff 100%)',
                       '&:hover': {
-                        background: 'linear-gradient(135deg, #9333ea 0%, #2563eb 100%)',
+                        background: 'linear-gradient(135deg, #9333ea 0%, #00b8d9 100%)',
                       },
                     }),
                     ...(selectedTemplate !== template.variant && {
-                      borderColor: 'rgba(96, 165, 250, 0.5)',
-                      color: '#60a5fa',
+                      borderColor: 'rgba(0, 217, 255, 0.5)',
+                      color: '#00d9ff',
                       '&:hover': {
-                        borderColor: '#60a5fa',
-                        background: 'rgba(96, 165, 250, 0.1)',
+                        borderColor: '#00d9ff',
+                        background: 'rgba(0, 217, 255, 0.1)',
                       },
                     }),
                   }}
