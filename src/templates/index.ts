@@ -40,12 +40,38 @@ export const templates: Record<string, TemplateConfig> = {
             root: {
               padding: '8px 16px',
               textTransform: 'none',
+              fontWeight: 400,
+              borderRadius: 2,
             },
             contained: {
               background: '#a855f7',
+              boxShadow: '0 1px 3px rgba(168, 85, 247, 0.3)',
               '&:hover': {
                 background: '#9333ea',
+                boxShadow: '0 2px 6px rgba(168, 85, 247, 0.4)',
               },
+            },
+            outlined: {
+              borderColor: '#a855f7',
+              color: '#a855f7',
+              '&:hover': {
+                borderColor: '#9333ea',
+                background: 'rgba(168, 85, 247, 0.08)',
+              },
+            },
+          },
+        },
+        MuiCard: {
+          styleOverrides: {
+            root: {
+              borderRadius: 2,
+            },
+          },
+        },
+        MuiPaper: {
+          styleOverrides: {
+            root: {
+              borderRadius: 2,
             },
           },
         },
@@ -135,14 +161,45 @@ export const templates: Record<string, TemplateConfig> = {
         MuiButton: {
           styleOverrides: {
             root: {
-              padding: '8px 16px',
-              textTransform: 'none',
+              padding: '9px 18px',
+              textTransform: 'uppercase',
+              fontWeight: 600,
+              fontSize: '0.75rem',
+              letterSpacing: '0.5px',
+              borderRadius: 2,
             },
             contained: {
               background: '#ec4899',
+              boxShadow: '0 2px 4px rgba(236, 72, 153, 0.3)',
               '&:hover': {
                 background: '#db2777',
+                boxShadow: '0 4px 8px rgba(236, 72, 153, 0.4)',
               },
+            },
+            outlined: {
+              borderColor: '#ec4899',
+              color: '#ec4899',
+              borderWidth: '2px',
+              '&:hover': {
+                borderColor: '#db2777',
+                background: 'rgba(236, 72, 153, 0.1)',
+                borderWidth: '2px',
+              },
+            },
+          },
+        },
+        MuiCard: {
+          styleOverrides: {
+            root: {
+              borderRadius: 2,
+              border: '1px solid rgba(236, 72, 153, 0.2)',
+            },
+          },
+        },
+        MuiPaper: {
+          styleOverrides: {
+            root: {
+              borderRadius: 2,
             },
           },
         },
@@ -182,14 +239,40 @@ export const templates: Record<string, TemplateConfig> = {
         MuiButton: {
           styleOverrides: {
             root: {
-              padding: '8px 16px',
+              padding: '10px 24px',
               textTransform: 'none',
+              fontWeight: 500,
+              borderRadius: 4,
             },
             contained: {
               background: '#9333ea',
+              boxShadow: '0 3px 10px rgba(147, 51, 234, 0.4)',
               '&:hover': {
                 background: '#7e22ce',
+                boxShadow: '0 5px 15px rgba(147, 51, 234, 0.5)',
               },
+            },
+            outlined: {
+              borderColor: '#9333ea',
+              color: '#9333ea',
+              '&:hover': {
+                borderColor: '#7e22ce',
+                background: 'rgba(147, 51, 234, 0.1)',
+              },
+            },
+          },
+        },
+        MuiCard: {
+          styleOverrides: {
+            root: {
+              borderRadius: 4,
+            },
+          },
+        },
+        MuiPaper: {
+          styleOverrides: {
+            root: {
+              borderRadius: 4,
             },
           },
         },
@@ -230,14 +313,41 @@ export const templates: Record<string, TemplateConfig> = {
         MuiButton: {
           styleOverrides: {
             root: {
-              padding: '6px 12px',
+              padding: '6px 14px',
               textTransform: 'none',
+              fontWeight: 400,
+              fontSize: '0.875rem',
+              borderRadius: 2,
             },
             contained: {
               background: '#f472b6',
+              boxShadow: '0 1px 2px rgba(244, 114, 182, 0.3)',
               '&:hover': {
                 background: '#ec4899',
+                boxShadow: '0 2px 4px rgba(244, 114, 182, 0.4)',
               },
+            },
+            outlined: {
+              borderColor: '#f472b6',
+              color: '#f472b6',
+              '&:hover': {
+                borderColor: '#ec4899',
+                background: 'rgba(244, 114, 182, 0.08)',
+              },
+            },
+          },
+        },
+        MuiCard: {
+          styleOverrides: {
+            root: {
+              borderRadius: 2,
+            },
+          },
+        },
+        MuiPaper: {
+          styleOverrides: {
+            root: {
+              borderRadius: 2,
             },
           },
         },
@@ -319,6 +429,48 @@ export const templates: Record<string, TemplateConfig> = {
       },
       shape: {
         borderRadius: 4,
+      },
+      components: {
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              padding: '8px 20px',
+              textTransform: 'none',
+              fontWeight: 500,
+              borderRadius: 4,
+            },
+            contained: {
+              background: '#c084fc',
+              boxShadow: '0 2px 6px rgba(192, 132, 252, 0.3)',
+              '&:hover': {
+                background: '#a855f7',
+                boxShadow: '0 4px 10px rgba(192, 132, 252, 0.4)',
+              },
+            },
+            outlined: {
+              borderColor: '#c084fc',
+              color: '#c084fc',
+              '&:hover': {
+                borderColor: '#a855f7',
+                background: 'rgba(192, 132, 252, 0.1)',
+              },
+            },
+          },
+        },
+        MuiCard: {
+          styleOverrides: {
+            root: {
+              borderRadius: 4,
+            },
+          },
+        },
+        MuiPaper: {
+          styleOverrides: {
+            root: {
+              borderRadius: 4,
+            },
+          },
+        },
       },
     }),
   },
