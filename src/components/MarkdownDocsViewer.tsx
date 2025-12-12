@@ -551,11 +551,21 @@ export function MarkdownDocsViewer({
     </Box>
   );
 
-  // Always wrap in ThemeProvider if we have a template or explicit theme
-  // This ensures the theme is properly applied
-  if (templateConfig || themeProp || activeTheme !== contextTheme) {
+  // Always wrap in ThemeProvider when we have a template to ensure theme is applied
+  // The key ensures React re-renders when template changes
+  if (templateConfig) {
+    return (
+      <ThemeProvider key={`theme-${templateConfig.variant}`} theme={activeTheme}>
+        {contentComponent}
+      </ThemeProvider>
+    );
+  }
+  
+  // If explicit theme prop is provided, wrap in ThemeProvider
+  if (themeProp) {
     return <ThemeProvider theme={activeTheme}>{contentComponent}</ThemeProvider>;
   }
 
+  // Otherwise use context theme
   return contentComponent;
 }
