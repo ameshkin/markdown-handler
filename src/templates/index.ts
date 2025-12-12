@@ -453,14 +453,14 @@ export const templates: Record<string, TemplateConfig> = {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#c084fc', // Light purple
+          main: '#00d9ff', // Electric blue
         },
         secondary: {
-          main: '#ec4899', // Magenta
+          main: '#a855f7', // Purple
         },
         background: {
-          default: '#1a0f2e',
-          paper: '#2d1b3d',
+          default: '#0a0e27',
+          paper: '#151b3d',
         },
       },
       shape: {
@@ -476,19 +476,19 @@ export const templates: Record<string, TemplateConfig> = {
               borderRadius: 4,
             },
             contained: {
-              background: '#c084fc',
-              boxShadow: '0 2px 6px rgba(192, 132, 252, 0.3)',
+              background: '#00d9ff',
+              boxShadow: '0 2px 6px rgba(0, 217, 255, 0.3)',
               '&:hover': {
-                background: '#a855f7',
-                boxShadow: '0 4px 10px rgba(192, 132, 252, 0.4)',
+                background: '#00b8d9',
+                boxShadow: '0 4px 10px rgba(0, 217, 255, 0.4)',
               },
             },
             outlined: {
-              borderColor: '#c084fc',
-              color: '#c084fc',
+              borderColor: '#00d9ff',
+              color: '#00d9ff',
               '&:hover': {
-                borderColor: '#a855f7',
-                background: 'rgba(192, 132, 252, 0.1)',
+                borderColor: '#00b8d9',
+                background: 'rgba(0, 217, 255, 0.1)',
               },
             },
           },

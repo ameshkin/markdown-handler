@@ -641,7 +641,7 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
           component="h1" 
           gutterBottom
           sx={{
-            background: 'linear-gradient(135deg, #a855f7 0%, #00d9ff 100%)',
+            background: '#a855f7',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -707,7 +707,7 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
                           size="small"
                           sx={{ 
                             ml: 2,
-                            background: 'linear-gradient(135deg, #a855f7 0%, #00d9ff 100%)',
+                            background: '#a855f7',
                             color: '#0a1929',
                             fontWeight: 600,
                           }}
@@ -796,9 +796,9 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
                   onClick={() => setSelectedTemplate(template.variant)}
                   sx={{
                     ...(selectedTemplate === template.variant && {
-                      background: 'linear-gradient(135deg, #a855f7 0%, #00d9ff 100%)',
+                      background: '#a855f7',
                       '&:hover': {
-                        background: 'linear-gradient(135deg, #9333ea 0%, #00b8d9 100%)',
+                        background: '#9333ea',
                       },
                     }),
                     ...(selectedTemplate !== template.variant && {
