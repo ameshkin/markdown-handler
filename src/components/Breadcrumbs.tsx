@@ -2,7 +2,7 @@
  * Breadcrumbs component for navigation
  */
 
-import { Breadcrumbs as MuiBreadcrumbs, Link, Typography, Box } from '@mui/material';
+import { Breadcrumbs as MuiBreadcrumbs, Link, Typography, Box, SxProps, Theme } from '@mui/material';
 import { ChevronRightOutlined } from '@mui/icons-material';
 import type { DocNode } from '../types';
 
@@ -10,6 +10,7 @@ interface BreadcrumbsProps {
   tree: DocNode[];
   currentPath: string;
   onPathClick?: (path: string) => void;
+  sx?: SxProps<Theme>;
 }
 
 function findPathInTree(
@@ -34,7 +35,7 @@ function findPathInTree(
   return null;
 }
 
-export function Breadcrumbs({ tree, currentPath, onPathClick }: BreadcrumbsProps) {
+export function Breadcrumbs({ tree, currentPath, onPathClick, sx }: BreadcrumbsProps) {
   const pathNodes = findPathInTree(tree, currentPath) || [];
 
   if (pathNodes.length === 0) {
@@ -42,7 +43,7 @@ export function Breadcrumbs({ tree, currentPath, onPathClick }: BreadcrumbsProps
   }
 
   return (
-    <Box sx={{ mb: 2 }}>
+    <Box sx={[{ mb: 2 }, ...(Array.isArray(sx) ? sx : sx ? [sx] : [])]}>
       <MuiBreadcrumbs
         separator={<ChevronRightOutlined fontSize="small" />}
         aria-label="breadcrumb"

@@ -3,13 +3,14 @@
  */
 
 import { useState } from 'react';
-import { TextField, InputAdornment, Box } from '@mui/material';
+import { TextField, InputAdornment, Box, SxProps, Theme } from '@mui/material';
 import { SearchOutlined } from '@mui/icons-material';
 import type { DocNode } from '../types';
 
 interface SearchBarProps {
   tree: DocNode[];
   onFilterChange: (filteredTree: DocNode[]) => void;
+  sx?: SxProps<Theme>;
 }
 
 function filterTree(nodes: DocNode[], searchTerm: string): DocNode[] {
@@ -39,7 +40,7 @@ function filterTree(nodes: DocNode[], searchTerm: string): DocNode[] {
   return filtered;
 }
 
-export function SearchBar({ tree, onFilterChange }: SearchBarProps) {
+export function SearchBar({ tree, onFilterChange, sx }: SearchBarProps) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +51,7 @@ export function SearchBar({ tree, onFilterChange }: SearchBarProps) {
   };
 
   return (
-    <Box sx={{ mb: 2 }}>
+    <Box sx={[{ mb: 2 }, ...(Array.isArray(sx) ? sx : sx ? [sx] : [])]}>
       <TextField
         fullWidth
         size="small"

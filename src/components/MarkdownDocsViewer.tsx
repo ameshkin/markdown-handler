@@ -255,6 +255,8 @@ export function MarkdownDocsViewer({
   header,
   footer,
   sx,
+  sidebarSx,
+  contentSx,
   onLinkClick,
 }: MarkdownDocsViewerProps) {
   // Get theme from context (will use default if no ThemeProvider exists)
@@ -420,28 +422,34 @@ export function MarkdownDocsViewer({
           gridTemplateColumns: { xs: '1fr', md: `${finalSidebarWidth}px 1fr` },
           minHeight: '100vh',
         },
-        ...(Array.isArray(sx) ? sx : [sx]),
+        ...(Array.isArray(sx) ? sx : sx ? [sx] : []),
       ]}
     >
       {/* Sidebar */}
       <Paper
         elevation={getElevation(sidebarStyle)}
-        sx={{
-          p: 2,
-          borderRadius: sidebarStyle === 'elevated' ? 1 : 0,
-          borderRight: getBorderStyle(sidebarStyle),
-          overflow: 'auto',
-          maxHeight: '100vh',
-          position: 'sticky',
-          top: 0,
-        }}
+        sx={[
+          {
+            p: 2,
+            borderRadius: sidebarStyle === 'elevated' ? 1 : 0,
+            borderRight: getBorderStyle(sidebarStyle),
+            overflow: 'auto',
+            maxHeight: '100vh',
+            position: 'sticky',
+            top: 0,
+          },
+          ...(Array.isArray(sidebarSx) ? sidebarSx : sidebarSx ? [sidebarSx] : []),
+        ]}
       >
         <Typography variant="h6" gutterBottom>
           {sidebarTitle}
         </Typography>
         
         {showSearch && (
-          <SearchBar tree={tree} onFilterChange={setFilteredTree} />
+          <SearchBar 
+            tree={tree} 
+            onFilterChange={setFilteredTree}
+          />
         )}
         
         <List dense>
@@ -481,41 +489,44 @@ export function MarkdownDocsViewer({
         
         <Paper
           elevation={getElevation(contentStyle)}
-          sx={{
-            p: 4,
-            border: getBorderStyle(contentStyle),
-            borderRadius: contentStyle === 'elevated' ? 1 : 0,
-            '& h1': {
-              mb: 2,
-              borderBottom: 1,
-              pb: 2,
+          sx={[
+            {
+              p: 4,
+              border: getBorderStyle(contentStyle),
+              borderRadius: contentStyle === 'elevated' ? 1 : 0,
+              '& h1': {
+                mb: 2,
+                borderBottom: 1,
+                pb: 2,
+              },
+              '& h2': {
+                mt: 4,
+                mb: 2,
+              },
+              '& h3': {
+                mt: 3,
+                mb: 1.5,
+              },
+              '& ul, & ol': {
+                pl: 3,
+                mb: 2,
+              },
+              '& li': {
+                mb: 0.5,
+              },
+              '& p': {
+                mb: 2,
+                lineHeight: 1.7,
+              },
+              '& blockquote': {
+                borderLeft: 3,
+                pl: 2,
+                ml: 0,
+                fontStyle: 'italic',
+              },
             },
-            '& h2': {
-              mt: 4,
-              mb: 2,
-            },
-            '& h3': {
-              mt: 3,
-              mb: 1.5,
-            },
-            '& ul, & ol': {
-              pl: 3,
-              mb: 2,
-            },
-            '& li': {
-              mb: 0.5,
-            },
-            '& p': {
-              mb: 2,
-              lineHeight: 1.7,
-            },
-            '& blockquote': {
-              borderLeft: 3,
-              pl: 2,
-              ml: 0,
-              fontStyle: 'italic',
-            },
-          }}
+            ...(Array.isArray(contentSx) ? contentSx : contentSx ? [contentSx] : []),
+          ]}
         >
           <ReactMarkdown 
             remarkPlugins={[remarkGfm]}

@@ -651,6 +651,40 @@ You can add custom header and footer components:
 />
 ```
 
+## Custom Styling with sx Props
+
+You can use MUI's `sx` prop to customize styling at different levels:
+
+```tsx
+<MarkdownDocsViewer
+  tree={tree}
+  content={content}
+  // Style the root container
+  sx={{
+    backgroundColor: 'grey.100',
+    padding: 2,
+  }}
+  // Style the sidebar
+  sidebarSx={{
+    backgroundColor: 'primary.light',
+    borderRight: '2px solid',
+    borderColor: 'primary.main',
+  }}
+  // Style the content area
+  contentSx={{
+    backgroundColor: 'background.paper',
+    borderRadius: 2,
+  }}
+/>
+```
+
+The `sx` prop supports all MUI theme-aware styling, including:
+- Colors (theme palette)
+- Spacing (theme spacing units)
+- Typography
+- Breakpoints (responsive design)
+- And more!
+
 ## API Reference
 
 ### `MarkdownDocsViewer`
@@ -673,6 +707,9 @@ Main component for displaying markdown documentation.
 | `enableBreadcrumbs` | `boolean` | `false` | Enable breadcrumbs navigation |
 | `header` | `React.ReactNode` | `undefined` | Custom header component |
 | `footer` | `React.ReactNode` | `undefined` | Custom footer component |
+| `sx` | `SxProps<Theme>` | `undefined` | MUI sx prop for styling the root container |
+| `sidebarSx` | `SxProps<Theme>` | `undefined` | MUI sx prop for styling the sidebar Paper component |
+| `contentSx` | `SxProps<Theme>` | `undefined` | MUI sx prop for styling the content Paper component |
 
 ### `DocNode`
 

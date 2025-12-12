@@ -98,9 +98,22 @@ export interface MarkdownDocsViewerProps {
   footer?: React.ReactNode;
   
   /**
-   * MUI sx prop for custom styling
+   * MUI sx prop for custom styling the root container
+   * Example: sx={{ backgroundColor: 'grey.100', padding: 2 }}
    */
   sx?: SxProps<Theme>;
+  
+  /**
+   * MUI sx prop for custom styling the sidebar Paper component
+   * Example: sidebarSx={{ backgroundColor: 'primary.light' }}
+   */
+  sidebarSx?: SxProps<Theme>;
+  
+  /**
+   * MUI sx prop for custom styling the content Paper component
+   * Example: contentSx={{ backgroundColor: 'background.paper' }}
+   */
+  contentSx?: SxProps<Theme>;
   
   /**
    * Custom link handler for markdown links
