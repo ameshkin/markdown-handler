@@ -21,15 +21,20 @@ export const templates: Record<string, TemplateConfig> = {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#00d9ff', // Electric blue
-          light: '#33e0ff', // Lighter electric blue
+          main: '#2DCE89', // Green
+          light: '#4ADE80', // Lighter green
+          dark: '#22C55E', // Darker green
         },
         secondary: {
-          main: '#00d9ff', // Electric blue
+          main: '#2DCE89', // Green
         },
         background: {
           default: '#0a0a0a', // Very dark background
           paper: '#0f1a2e', // Dark blue
+        },
+        text: {
+          primary: '#F9FAFB', // Almost white
+          secondary: '#9CA3AF', // Light grey
         },
       },
       shape: {
@@ -45,20 +50,22 @@ export const templates: Record<string, TemplateConfig> = {
               borderRadius: 2,
             },
             contained: {
-              background: '#00d9ff',
+              background: '#2DCE89',
               color: '#000000',
-              boxShadow: '0 1px 3px rgba(0, 217, 255, 0.3)',
+              boxShadow: '0 1px 3px rgba(45, 206, 137, 0.3)',
               '&:hover': {
-                background: '#33e0ff',
-                boxShadow: '0 2px 6px rgba(0, 217, 255, 0.4)',
+                background: '#22C55E',
+                boxShadow: '0 2px 6px rgba(45, 206, 137, 0.4)',
               },
             },
             outlined: {
-              borderColor: '#00d9ff',
-              color: '#00d9ff',
+              borderColor: '#2DCE89',
+              color: '#2DCE89',
+              borderWidth: '2px',
               '&:hover': {
-                borderColor: '#33e0ff',
-                background: 'rgba(0, 217, 255, 0.1)',
+                borderColor: '#22C55E',
+                background: 'rgba(45, 206, 137, 0.1)',
+                borderWidth: '2px',
               },
             },
           },
@@ -68,6 +75,7 @@ export const templates: Record<string, TemplateConfig> = {
             root: {
               borderRadius: 2,
               backgroundColor: '#0f1a2e', // Dark blue
+              border: '2px solid #2DCE89', // Green border
             },
           },
         },
@@ -76,6 +84,15 @@ export const templates: Record<string, TemplateConfig> = {
             root: {
               borderRadius: 2,
               backgroundColor: '#0f1a2e', // Dark blue
+              border: '2px solid #2DCE89', // Green border
+            },
+          },
+        },
+        MuiChip: {
+          styleOverrides: {
+            root: {
+              borderColor: '#2DCE89',
+              color: '#2DCE89',
             },
           },
         },
