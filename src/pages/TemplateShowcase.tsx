@@ -757,14 +757,14 @@ export function TemplateShowcase() {
               p: 3, 
               mb: 3,
               background: 'linear-gradient(135deg, #132f4c 0%, #1e3a5f 100%)',
-              border: '1px solid rgba(74, 222, 128, 0.3)',
+              border: '1px solid rgba(168, 85, 247, 0.3)',
             }}
           >
             <Typography 
               variant="h6" 
               gutterBottom
               sx={{
-                color: '#4ade80',
+                color: '#a855f7',
                 fontWeight: 600,
               }}
             >
