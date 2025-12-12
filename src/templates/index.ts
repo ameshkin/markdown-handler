@@ -21,14 +21,15 @@ export const templates: Record<string, TemplateConfig> = {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#a855f7', // Purple
+          main: '#00d9ff', // Electric blue
+          light: '#33e0ff', // Lighter electric blue
         },
         secondary: {
           main: '#00d9ff', // Electric blue
         },
         background: {
           default: '#0a0a0a', // Very dark background
-          paper: '#1a1a1a', // Dark grey
+          paper: '#0f1a2e', // Dark blue
         },
       },
       shape: {
@@ -44,19 +45,20 @@ export const templates: Record<string, TemplateConfig> = {
               borderRadius: 2,
             },
             contained: {
-              background: '#a855f7',
-              boxShadow: '0 1px 3px rgba(168, 85, 247, 0.3)',
+              background: '#00d9ff',
+              color: '#000000',
+              boxShadow: '0 1px 3px rgba(0, 217, 255, 0.3)',
               '&:hover': {
-                background: '#00d9ff',
+                background: '#33e0ff',
                 boxShadow: '0 2px 6px rgba(0, 217, 255, 0.4)',
               },
             },
             outlined: {
-              borderColor: '#a855f7',
-              color: '#a855f7',
+              borderColor: '#00d9ff',
+              color: '#00d9ff',
               '&:hover': {
-                borderColor: '#00d9ff',
-                background: 'rgba(0, 217, 255, 0.08)',
+                borderColor: '#33e0ff',
+                background: 'rgba(0, 217, 255, 0.1)',
               },
             },
           },
@@ -65,6 +67,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 2,
+              backgroundColor: '#0f1a2e', // Dark blue
             },
           },
         },
@@ -72,6 +75,7 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 2,
+              backgroundColor: '#0f1a2e', // Dark blue
             },
           },
         },
