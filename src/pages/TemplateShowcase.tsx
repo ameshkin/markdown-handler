@@ -656,126 +656,11 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
           onChange={(_, newValue) => setTabValue(newValue)}
           sx={{ mb: 4, borderBottom: 1, borderColor: 'divider' }}
         >
-          <Tab label="Templates" />
           <Tab label="Live Preview" />
+          <Tab label="Templates" />
         </Tabs>
 
         <TabPanel value={tabValue} index={0}>
-          <Grid container spacing={3}>
-            {templates.map((template) => (
-              <Grid size={{ xs: 12, md: 6, lg: 4 }} key={template.variant}>
-                <Card
-                  sx={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    cursor: 'pointer',
-                    transition: 'transform 0.2s, box-shadow 0.2s, border-color 0.2s',
-                    background: '#151b3d',
-                    border: template.variant === selectedTemplate 
-                      ? '2px solid #a855f7' 
-                      : '1px solid rgba(168, 85, 247, 0.2)',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: '0 8px 24px rgba(168, 85, 247, 0.3)',
-                      borderColor: '#a855f7',
-                    },
-                  }}
-                  onClick={() => {
-                    setSelectedTemplate(template.variant);
-                    setTabValue(1);
-                  }}
-                >
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                      <Typography 
-                        variant="h5" 
-                        component="h2"
-                        sx={{
-                          color: '#a855f7',
-                          fontWeight: 600,
-                        }}
-                      >
-                        {template.name}
-                      </Typography>
-                      {template.variant === selectedTemplate && (
-                        <Chip
-                          label="Selected"
-                          size="small"
-                          sx={{ 
-                            ml: 2,
-                            background: 'primary.main',
-                            color: '#ffffff',
-                            fontWeight: 600,
-                          }}
-                        />
-                      )}
-                    </Box>
-                    <Typography variant="body2" color="text.secondary" paragraph>
-                      {template.description}
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
-                      <Chip
-                        label={`Width: ${template.sidebarWidth}px`}
-                        size="small"
-                        variant="outlined"
-                        sx={{
-                          borderColor: '#a855f7',
-                          color: '#a855f7',
-                        }}
-                      />
-                      {template.showSearch && (
-                        <Chip 
-                          label="Search" 
-                          size="small" 
-                          variant="outlined"
-                          sx={{
-                            borderColor: '#a855f7',
-                            color: '#a855f7',
-                          }}
-                        />
-                      )}
-                      {template.showBreadcrumbs && (
-                        <Chip 
-                          label="Breadcrumbs" 
-                          size="small" 
-                          variant="outlined"
-                          sx={{
-                            borderColor: '#a855f7',
-                            color: '#a855f7',
-                          }}
-                        />
-                      )}
-                      <Chip
-                        label={template.sidebarStyle || 'flat'}
-                        size="small"
-                        variant="outlined"
-                        sx={{
-                          borderColor: '#a855f7',
-                          color: '#a855f7',
-                        }}
-                      />
-                    </Box>
-                  </CardContent>
-                  <CardActions>
-                    <Button
-                      size="small"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedTemplate(template.variant);
-                        setTabValue(1);
-                      }}
-                    >
-                      Preview
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </TabPanel>
-
-        <TabPanel value={tabValue} index={1}>
           <Paper 
             sx={{ 
               p: 3, 
@@ -866,6 +751,138 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
               sidebarTitle="Documentation"
             />
           </Box>
+        </TabPanel>
+
+        <TabPanel value={tabValue} index={1}>
+          <Grid container spacing={3}>
+            {templates.map((template) => (
+              <Grid size={{ xs: 12, md: 6, lg: 4 }} key={template.variant}>
+                <Card
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    cursor: 'pointer',
+                    transition: 'transform 0.2s, box-shadow 0.2s, border-color 0.2s',
+                    background: '#151b3d',
+                    border: template.variant === selectedTemplate 
+                      ? '2px solid #a855f7' 
+                      : '1px solid rgba(168, 85, 247, 0.2)',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: '0 8px 24px rgba(168, 85, 247, 0.3)',
+                      borderColor: '#a855f7',
+                    },
+                  }}
+                  onClick={() => {
+                    setSelectedTemplate(template.variant);
+                    setTabValue(0);
+                  }}
+                >
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                      <Typography 
+                        variant="h5" 
+                        component="h2"
+                        sx={{
+                          color: '#a855f7',
+                          fontWeight: 600,
+                        }}
+                      >
+                        {template.name}
+                      </Typography>
+                      {template.variant === selectedTemplate && (
+                        <Chip
+                          label="Selected"
+                          size="small"
+                          sx={{ 
+                            ml: 2,
+                            background: 'primary.main',
+                            color: '#ffffff',
+                            fontWeight: 600,
+                          }}
+                        />
+                      )}
+                    </Box>
+                    <Typography variant="body2" color="text.secondary" paragraph>
+                      {template.description}
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
+                      <Chip
+                        label={`Width: ${template.sidebarWidth}px`}
+                        size="small"
+                        variant="outlined"
+                        sx={{
+                          borderColor: '#a855f7',
+                          color: '#a855f7',
+                        }}
+                      />
+                      {template.showSearch && (
+                        <Chip 
+                          label="Search" 
+                          size="small" 
+                          variant="outlined"
+                          sx={{
+                            borderColor: '#a855f7',
+                            color: '#a855f7',
+                          }}
+                        />
+                      )}
+                      {template.showBreadcrumbs && (
+                        <Chip 
+                          label="Breadcrumbs" 
+                          size="small" 
+                          variant="outlined"
+                          sx={{
+                            borderColor: '#a855f7',
+                            color: '#a855f7',
+                          }}
+                        />
+                      )}
+                      <Chip
+                        label={template.sidebarStyle || 'flat'}
+                        size="small"
+                        variant="outlined"
+                        sx={{
+                          borderColor: '#a855f7',
+                          color: '#a855f7',
+                        }}
+                      />
+                    </Box>
+                  </CardContent>
+                  <CardActions>
+                    <Button
+                      size="small"
+                      variant={selectedTemplate === template.variant ? 'contained' : 'outlined'}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedTemplate(template.variant);
+                        setTabValue(0);
+                      }}
+                      sx={{
+                        ...(selectedTemplate === template.variant && {
+                          background: '#a855f7',
+                          '&:hover': {
+                            background: '#9333ea',
+                          },
+                        }),
+                        ...(selectedTemplate !== template.variant && {
+                          borderColor: 'rgba(168, 85, 247, 0.5)',
+                          color: '#a855f7',
+                          '&:hover': {
+                            borderColor: '#a855f7',
+                            background: 'rgba(168, 85, 247, 0.1)',
+                          },
+                        }),
+                      }}
+                    >
+                      {selectedTemplate === template.variant ? 'Selected' : 'Select'}
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
         </TabPanel>
       </Container>
     </Box>
