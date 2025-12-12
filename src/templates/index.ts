@@ -519,7 +519,7 @@ export const templates: Record<string, TemplateConfig> = {
   
   spooky: {
     name: 'Spooky',
-    description: 'Darcula-inspired dark theme with centered content',
+    description: 'Halloween-inspired theme with pure black, orange, and green accents',
     variant: 'spooky',
     sidebarWidth: 280,
     sidebarPosition: 'left',
@@ -532,27 +532,50 @@ export const templates: Record<string, TemplateConfig> = {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#A9B7C6', // Darcula text color
+          main: '#FF6B35', // Orange
+          light: '#FF8C5A',
+          dark: '#E55A2B',
         },
         secondary: {
-          main: '#CC7832', // Darcula keyword/orange
+          main: '#4ECDC4', // Teal/green
+          light: '#6EDDD6',
+          dark: '#3AB5AE',
         },
         background: {
-          default: '#2B2B2B', // Darcula background
-          paper: '#3C3F41', // Darcula panel background
+          default: '#000000', // Pure black
+          paper: '#000000', // Pure black
         },
         text: {
-          primary: '#A9B7C6', // Darcula text
-          secondary: '#808080', // Darcula comments
+          primary: '#FF6B35', // Orange text
+          secondary: '#4ECDC4', // Green/teal secondary
         },
         success: {
-          main: '#6A8759', // Darcula strings/green
-        },
-        info: {
-          main: '#6897BB', // Darcula numbers/blue
+          main: '#4ECDC4', // Green
         },
         warning: {
-          main: '#FFC66D', // Darcula functions/yellow
+          main: '#FF6B35', // Orange
+        },
+        divider: 'rgba(255, 107, 53, 0.3)',
+      },
+      typography: {
+        fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+        h1: {
+          color: '#FF6B35',
+          fontWeight: 700,
+        },
+        h2: {
+          color: '#FF6B35',
+          fontWeight: 700,
+        },
+        h3: {
+          color: '#FF6B35',
+          fontWeight: 600,
+        },
+        body1: {
+          color: '#FF6B35',
+        },
+        body2: {
+          color: '#4ECDC4',
         },
       },
       shape: {
@@ -568,20 +591,20 @@ export const templates: Record<string, TemplateConfig> = {
               borderRadius: 4,
             },
             contained: {
-              background: '#CC7832',
-              color: '#2B2B2B',
-              boxShadow: '0 2px 6px rgba(204, 120, 50, 0.3)',
+              background: '#FF6B35',
+              color: '#000000',
+              boxShadow: '0 0 10px rgba(255, 107, 53, 0.5)',
               '&:hover': {
-                background: '#B86A2A',
-                boxShadow: '0 4px 10px rgba(204, 120, 50, 0.4)',
+                background: '#E55A2B',
+                boxShadow: '0 0 15px rgba(255, 107, 53, 0.7)',
               },
             },
             outlined: {
-              borderColor: '#A9B7C6',
-              color: '#A9B7C6',
+              borderColor: '#FF6B35',
+              color: '#FF6B35',
               '&:hover': {
-                borderColor: '#CC7832',
-                background: 'rgba(204, 120, 50, 0.1)',
+                borderColor: '#E55A2B',
+                background: 'rgba(255, 107, 53, 0.1)',
               },
             },
           },
@@ -590,7 +613,8 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 4,
-              backgroundColor: '#3C3F41',
+              backgroundColor: '#000000',
+              border: '1px solid rgba(255, 107, 53, 0.3)',
             },
           },
         },
@@ -598,7 +622,17 @@ export const templates: Record<string, TemplateConfig> = {
           styleOverrides: {
             root: {
               borderRadius: 4,
-              backgroundColor: '#3C3F41',
+              backgroundColor: '#000000',
+              border: '1px solid rgba(255, 107, 53, 0.3)',
+            },
+          },
+        },
+        MuiChip: {
+          styleOverrides: {
+            root: {
+              backgroundColor: 'rgba(255, 107, 53, 0.2)',
+              color: '#FF6B35',
+              border: '1px solid rgba(255, 107, 53, 0.5)',
             },
           },
         },
