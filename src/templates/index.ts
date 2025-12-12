@@ -111,14 +111,43 @@ export const templates: Record<string, TemplateConfig> = {
         MuiButton: {
           styleOverrides: {
             root: {
-              padding: '8px 16px',
+              padding: '10px 20px',
               textTransform: 'none',
+              fontWeight: 500,
+              borderRadius: 6,
             },
             contained: {
               background: '#00d9ff',
+              boxShadow: '0 2px 8px rgba(0, 217, 255, 0.4)',
               '&:hover': {
                 background: '#00b8d9',
+                boxShadow: '0 4px 12px rgba(0, 217, 255, 0.5)',
+                transform: 'translateY(-1px)',
               },
+            },
+            outlined: {
+              borderColor: '#00d9ff',
+              color: '#00d9ff',
+              borderWidth: '2px',
+              '&:hover': {
+                borderColor: '#00b8d9',
+                background: 'rgba(0, 217, 255, 0.1)',
+                borderWidth: '2px',
+              },
+            },
+          },
+        },
+        MuiCard: {
+          styleOverrides: {
+            root: {
+              borderRadius: 6,
+            },
+          },
+        },
+        MuiPaper: {
+          styleOverrides: {
+            root: {
+              borderRadius: 6,
             },
           },
         },
