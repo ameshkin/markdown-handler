@@ -575,6 +575,7 @@ export function MarkdownDocsViewer({
             {
               p: 4,
               border: getBorderStyle(contentStyle),
+              borderRight: 0,
               borderRadius: contentStyle === 'elevated' ? 1 : 0,
               '& h1': {
                 mb: 2,
