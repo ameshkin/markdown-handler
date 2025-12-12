@@ -494,7 +494,7 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#4ade80',
+      main: '#a855f7', // Purple
     },
   },
 });
@@ -638,7 +638,7 @@ export function TemplateShowcase() {
           component="h1" 
           gutterBottom
           sx={{
-            background: 'linear-gradient(135deg, #4ade80 0%, #60a5fa 100%)',
+            background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -673,12 +673,12 @@ export function TemplateShowcase() {
                     transition: 'transform 0.2s, box-shadow 0.2s, border-color 0.2s',
                     background: 'linear-gradient(135deg, #132f4c 0%, #1e3a5f 100%)',
                     border: template.variant === selectedTemplate 
-                      ? '2px solid #4ade80' 
+                      ? '2px solid #a855f7' 
                       : '1px solid rgba(96, 165, 250, 0.2)',
                     '&:hover': {
                       transform: 'translateY(-4px)',
-                      boxShadow: '0 8px 24px rgba(74, 222, 128, 0.3)',
-                      borderColor: '#4ade80',
+                      boxShadow: '0 8px 24px rgba(168, 85, 247, 0.3)',
+                      borderColor: '#a855f7',
                     },
                   }}
                   onClick={() => {
@@ -692,7 +692,7 @@ export function TemplateShowcase() {
                         variant="h5" 
                         component="h2"
                         sx={{
-                          color: '#4ade80',
+                          color: '#a855f7',
                           fontWeight: 600,
                         }}
                       >
@@ -704,7 +704,7 @@ export function TemplateShowcase() {
                           size="small"
                           sx={{ 
                             ml: 2,
-                            background: 'linear-gradient(135deg, #4ade80 0%, #60a5fa 100%)',
+                            background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                             color: '#0a1929',
                             fontWeight: 600,
                           }}
@@ -793,9 +793,9 @@ export function TemplateShowcase() {
                   onClick={() => setSelectedTemplate(template.variant)}
                   sx={{
                     ...(selectedTemplate === template.variant && {
-                      background: 'linear-gradient(135deg, #4ade80 0%, #60a5fa 100%)',
+                      background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                       '&:hover': {
-                        background: 'linear-gradient(135deg, #22c55e 0%, #3b82f6 100%)',
+                        background: 'linear-gradient(135deg, #9333ea 0%, #2563eb 100%)',
                       },
                     }),
                     ...(selectedTemplate !== template.variant && {
@@ -839,18 +839,23 @@ export function TemplateShowcase() {
 
 // Standalone version with theme
 export function TemplateShowcaseApp() {
-  const darkRedPurpleTheme = createTheme({
+  const darkPurpleBlueRedTheme = createTheme({
     palette: {
       mode: 'dark',
       primary: {
-        main: '#ef4444', // Red
-        light: '#f87171',
-        dark: '#dc2626',
-      },
-      secondary: {
         main: '#a855f7', // Purple
         light: '#c084fc',
         dark: '#9333ea',
+      },
+      secondary: {
+        main: '#3b82f6', // Blue
+        light: '#60a5fa',
+        dark: '#2563eb',
+      },
+      error: {
+        main: '#ef4444', // Red
+        light: '#f87171',
+        dark: '#dc2626',
       },
       background: {
         default: '#0f0a1a', // Very dark purple-black
@@ -861,7 +866,7 @@ export function TemplateShowcaseApp() {
         secondary: '#fbcfe8', // Lighter pink
       },
       success: {
-        main: '#ef4444', // Red
+        main: '#3b82f6', // Blue
       },
       info: {
         main: '#a855f7', // Purple
@@ -877,13 +882,12 @@ export function TemplateShowcaseApp() {
       MuiCard: {
         styleOverrides: {
           root: {
-            background: 'linear-gradient(135deg, #1a0f2e 0%, #2d1b3d 50%, #1a0f2e 100%)',
-            backgroundImage: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%)',
+            background: '#1a0f2e',
             border: '1px solid rgba(168, 85, 247, 0.3)',
-            boxShadow: '0 8px 32px rgba(168, 85, 247, 0.1), 0 4px 16px rgba(239, 68, 68, 0.1)',
+            boxShadow: '0 8px 32px rgba(168, 85, 247, 0.1), 0 4px 16px rgba(59, 130, 246, 0.1)',
             '&:hover': {
               border: '1px solid rgba(168, 85, 247, 0.5)',
-              boxShadow: '0 12px 48px rgba(168, 85, 247, 0.2), 0 6px 24px rgba(239, 68, 68, 0.2)',
+              boxShadow: '0 12px 48px rgba(168, 85, 247, 0.2), 0 6px 24px rgba(59, 130, 246, 0.2)',
             },
           },
         },
@@ -891,19 +895,19 @@ export function TemplateShowcaseApp() {
       MuiButton: {
         styleOverrides: {
           contained: {
-            background: 'linear-gradient(135deg, #ef4444 0%, #a855f7 100%)',
-            boxShadow: '0 4px 16px rgba(239, 68, 68, 0.3), 0 2px 8px rgba(168, 85, 247, 0.3)',
+            background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #ef4444 100%)',
+            boxShadow: '0 4px 16px rgba(168, 85, 247, 0.3), 0 2px 8px rgba(59, 130, 246, 0.3)',
             '&:hover': {
-              background: 'linear-gradient(135deg, #dc2626 0%, #9333ea 100%)',
-              boxShadow: '0 6px 24px rgba(239, 68, 68, 0.4), 0 4px 12px rgba(168, 85, 247, 0.4)',
+              background: 'linear-gradient(135deg, #9333ea 0%, #2563eb 50%, #dc2626 100%)',
+              boxShadow: '0 6px 24px rgba(168, 85, 247, 0.4), 0 4px 12px rgba(59, 130, 246, 0.4)',
               transform: 'translateY(-2px)',
             },
           },
           outlined: {
-            border: '2px solid',
-            borderImage: 'linear-gradient(135deg, #ef4444, #a855f7) 1',
+            border: '1px solid rgba(168, 85, 247, 0.5)',
             '&:hover': {
-              background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%)',
+              background: 'rgba(168, 85, 247, 0.1)',
+              border: '1px solid rgba(168, 85, 247, 0.7)',
             },
           },
         },
@@ -911,15 +915,14 @@ export function TemplateShowcaseApp() {
       MuiPaper: {
         styleOverrides: {
           root: {
-            background: 'linear-gradient(135deg, #1a0f2e 0%, #2d1b3d 50%, #1a0f2e 100%)',
-            backgroundImage: 'linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(239, 68, 68, 0.05) 100%)',
+            background: '#1a0f2e',
           },
         },
       },
       MuiChip: {
         styleOverrides: {
           root: {
-            background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(239, 68, 68, 0.2) 100%)',
+            background: 'rgba(168, 85, 247, 0.2)',
             border: '1px solid rgba(168, 85, 247, 0.3)',
           },
         },
@@ -928,7 +931,7 @@ export function TemplateShowcaseApp() {
   });
 
   return (
-    <ThemeProvider theme={darkRedPurpleTheme}>
+    <ThemeProvider theme={darkPurpleBlueRedTheme}>
       <CssBaseline />
       <TemplateShowcase />
     </ThemeProvider>

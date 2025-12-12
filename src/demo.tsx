@@ -8,19 +8,24 @@ import { createRoot } from 'react-dom/client';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import { TemplateShowcaseApp } from './pages/TemplateShowcase';
 
-// Dark red/purple theme with gradients
-const darkRedPurpleTheme = createTheme({
+// Dark purple/blue/red theme
+const darkPurpleBlueRedTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#ef4444', // Red
-      light: '#f87171',
-      dark: '#dc2626',
-    },
-    secondary: {
       main: '#a855f7', // Purple
       light: '#c084fc',
       dark: '#9333ea',
+    },
+    secondary: {
+      main: '#3b82f6', // Blue
+      light: '#60a5fa',
+      dark: '#2563eb',
+    },
+    error: {
+      main: '#ef4444', // Red
+      light: '#f87171',
+      dark: '#dc2626',
     },
     background: {
       default: '#0f0a1a', // Very dark purple-black
@@ -31,7 +36,7 @@ const darkRedPurpleTheme = createTheme({
       secondary: '#fbcfe8', // Lighter pink
     },
     success: {
-      main: '#ef4444', // Red
+      main: '#3b82f6', // Blue
     },
     info: {
       main: '#a855f7', // Purple
@@ -47,13 +52,12 @@ const darkRedPurpleTheme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          background: 'linear-gradient(135deg, #1a0f2e 0%, #2d1b3d 50%, #1a0f2e 100%)',
-          backgroundImage: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%)',
+          background: '#1a0f2e',
           border: '1px solid rgba(168, 85, 247, 0.3)',
-          boxShadow: '0 8px 32px rgba(168, 85, 247, 0.1), 0 4px 16px rgba(239, 68, 68, 0.1)',
+          boxShadow: '0 8px 32px rgba(168, 85, 247, 0.1), 0 4px 16px rgba(59, 130, 246, 0.1)',
           '&:hover': {
             border: '1px solid rgba(168, 85, 247, 0.5)',
-            boxShadow: '0 12px 48px rgba(168, 85, 247, 0.2), 0 6px 24px rgba(239, 68, 68, 0.2)',
+            boxShadow: '0 12px 48px rgba(168, 85, 247, 0.2), 0 6px 24px rgba(59, 130, 246, 0.2)',
           },
         },
       },
@@ -61,21 +65,19 @@ const darkRedPurpleTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         contained: {
-          background: 'linear-gradient(135deg, #ef4444 0%, #a855f7 100%)',
-          boxShadow: '0 4px 16px rgba(239, 68, 68, 0.3), 0 2px 8px rgba(168, 85, 247, 0.3)',
+          background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #ef4444 100%)',
+          boxShadow: '0 4px 16px rgba(168, 85, 247, 0.3), 0 2px 8px rgba(59, 130, 246, 0.3)',
           '&:hover': {
-            background: 'linear-gradient(135deg, #dc2626 0%, #9333ea 100%)',
-            boxShadow: '0 6px 24px rgba(239, 68, 68, 0.4), 0 4px 12px rgba(168, 85, 247, 0.4)',
+            background: 'linear-gradient(135deg, #9333ea 0%, #2563eb 50%, #dc2626 100%)',
+            boxShadow: '0 6px 24px rgba(168, 85, 247, 0.4), 0 4px 12px rgba(59, 130, 246, 0.4)',
             transform: 'translateY(-2px)',
           },
         },
         outlined: {
-          border: '2px solid',
-          borderImage: 'linear-gradient(135deg, #ef4444, #a855f7) 1',
+          border: '1px solid rgba(168, 85, 247, 0.5)',
           '&:hover': {
-            background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%)',
-            border: '2px solid',
-            borderImage: 'linear-gradient(135deg, #ef4444, #a855f7) 1',
+            background: 'rgba(168, 85, 247, 0.1)',
+            border: '1px solid rgba(168, 85, 247, 0.7)',
           },
         },
       },
@@ -83,15 +85,14 @@ const darkRedPurpleTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          background: 'linear-gradient(135deg, #1a0f2e 0%, #2d1b3d 50%, #1a0f2e 100%)',
-          backgroundImage: 'linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(239, 68, 68, 0.05) 100%)',
+          background: '#1a0f2e',
         },
       },
     },
     MuiChip: {
       styleOverrides: {
         root: {
-          background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(239, 68, 68, 0.2) 100%)',
+          background: 'rgba(168, 85, 247, 0.2)',
           border: '1px solid rgba(168, 85, 247, 0.3)',
         },
       },
@@ -101,7 +102,7 @@ const darkRedPurpleTheme = createTheme({
 
 function Demo() {
   return (
-    <ThemeProvider theme={darkRedPurpleTheme}>
+    <ThemeProvider theme={darkPurpleBlueRedTheme}>
       <CssBaseline />
       <TemplateShowcaseApp />
     </ThemeProvider>
