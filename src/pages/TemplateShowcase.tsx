@@ -784,7 +784,13 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
                 {selectedTemplate}
               </Box>
             </Typography>
-            <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mt: 2 }}>
+            <Box sx={{ 
+              display: 'flex', 
+              gap: 1, 
+              flexWrap: 'wrap', 
+              mt: 2,
+              justifyContent: 'center',
+            }}>
               {templates.map((template) => (
                 <Button
                   key={template.variant}
@@ -792,6 +798,9 @@ export function TemplateShowcase({ selectedTemplate, setSelectedTemplate }: Temp
                   size="small"
                   onClick={() => setSelectedTemplate(template.variant)}
                   sx={{
+                    minWidth: '100px',
+                    width: '100px',
+                    height: '36px',
                     ...(selectedTemplate === template.variant && {
                       background: '#a855f7',
                       '&:hover': {
