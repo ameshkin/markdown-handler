@@ -503,7 +503,6 @@ export function MarkdownDocsViewer({
         {
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: `${finalSidebarWidth}px 1fr` },
-          minHeight: '100vh',
         },
         ...(Array.isArray(sx) ? sx : sx ? [sx] : []),
       ]}
@@ -517,9 +516,9 @@ export function MarkdownDocsViewer({
             borderRadius: sidebarStyle === 'elevated' ? 1 : 0,
             borderRight: getBorderStyle(sidebarStyle),
             overflow: 'auto',
-            maxHeight: '100vh',
             position: 'sticky',
             top: 0,
+            alignSelf: 'flex-start',
           },
           ...(Array.isArray(sidebarSx) ? sidebarSx : sidebarSx ? [sidebarSx] : []),
         ]}
