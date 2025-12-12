@@ -1,6 +1,6 @@
 {
   "name": "@ameshkin/markdown-handler",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple React + MUI library for displaying markdown help files with left navigation and right content panel",
   "type": "module",
   "main": "./public/index.js",
